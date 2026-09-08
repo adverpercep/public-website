@@ -160,7 +160,7 @@ section.tight{padding:64px 32px}
 /* ===== Team grid ===== */
 .team{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:48px}
 .member{text-align:center}
-.member .avatar{width:140px;height:140px;border-radius:50%;margin:0 auto 14px;display:block;object-fit:cover;background:var(--gray-5)}
+.member .avatar{width:168px;height:168px;border-radius:50%;margin:0 auto 14px;display:block;object-fit:cover;background:var(--gray-5)}
 .member h5{font-size:15px;font-weight:600;color:var(--navy-3);margin-bottom:2px}
 .member .role{font-size:13px;color:var(--gray-1);line-height:1.4}
 .member .bio-link{display:inline-block;margin-top:10px;font-size:12.5px;font-weight:600;color:var(--teal-3);text-decoration:none}
@@ -177,7 +177,7 @@ section.tight{padding:64px 32px}
 .mcta-hex-2{bottom:-40px;right:25%;width:100px;height:116px;background:var(--teal-4)}
 
 /* ===== Footer ===== */
-footer{background:var(--navy-1);color:rgba(255,255,255,.7);padding:64px 32px 32px}
+footer{background:var(--navy-2);color:rgba(255,255,255,.7);padding:64px 32px 32px}
 .foot-inner{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px}
 footer h5{color:#fff;font-size:13px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;margin-bottom:16px}
 footer ul{list-style:none;display:flex;flex-direction:column;gap:10px}
@@ -240,6 +240,22 @@ footer a:hover{color:#fff}
 /* ===== Page-specific: about stats proof bar ===== */
 .about-stats{background:#fff;padding:56px 32px;border-top:1px solid var(--gray-5);border-bottom:1px solid var(--gray-5)}
 .about-stats-row{max-width:1080px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:32px}
+
+/* ===== Page-specific: team group sub-headings ===== */
+.team-group-title{margin-top:48px;font-size:28px;font-weight:700;color:var(--navy-3);letter-spacing:-.015em}
+.team-group-sub{font-size:15.5px;color:var(--gray-1);margin-top:6px}
+section#leadership-team .team-group-title{margin-top:56px}
+
+/* ===== Page-specific: jump nav ===== */
+html{scroll-behavior:smooth}
+[id]{scroll-margin-top:132px}
+.jump-nav{position:sticky;top:73px;z-index:90;background:#fff;border-bottom:1px solid var(--gray-5);box-shadow:0 1px 0 rgba(16,27,95,.04)}
+.jump-nav-inner{max-width:1280px;margin:0 auto;padding:12px 32px;display:flex;gap:6px;flex-wrap:wrap;align-items:center;overflow-x:auto}
+.jump-nav a{font-size:13px;font-weight:600;color:var(--gray-1);text-decoration:none;padding:8px 14px;border-radius:999px;white-space:nowrap;transition:background .15s,color .15s}
+.jump-nav a:hover{background:var(--gray-5);color:var(--navy-3)}
+@media (max-width:640px){
+  .jump-nav-inner{padding:10px 20px}
+}
 </style>
 </head>
 <body>
@@ -289,6 +305,20 @@ footer a:hover{color:#fff}
   </div>
 </section>
 
+<!-- ===== JUMP NAV ===== -->
+<nav class="jump-nav" aria-label="Page sections">
+  <div class="jump-nav-inner">
+    <a href="#history">Our History</a>
+    <a href="#industry-experience">Industry Experience</a>
+    <a href="#core-values">Core Values</a>
+    <a href="#leadership-team">Leadership</a>
+    <a href="#business-intelligence-team">Business Intelligence</a>
+    <a href="#research-operations-team">Research Operations</a>
+    <a href="#sales-team">Sales</a>
+    <a href="#hub-team">Hub Team</a>
+  </div>
+</nav>
+
 <!-- ===== STATS BAR ===== -->
 <div class="about-stats">
   <div class="about-stats-row">
@@ -300,7 +330,7 @@ footer a:hover{color:#fff}
 </div>
 
 <!-- ===== OUR HISTORY / STORY ===== -->
-<section class="bg-light">
+<section class="bg-light" id="history">
   <div class="sec-inner">
     <div class="split">
       <div class="split-copy">
@@ -314,7 +344,7 @@ footer a:hover{color:#fff}
 </section>
 
 <!-- ===== INDUSTRY EXPERIENCE ===== -->
-<section>
+<section id="industry-experience">
   <div class="sec-inner">
     <div style="text-align:center;max-width:780px;margin:0 auto">
       <span class="sec-eyebrow" style="justify-content:center">Industry Experience Counts</span>
@@ -325,7 +355,7 @@ footer a:hover{color:#fff}
 </section>
 
 <!-- ===== CORE VALUES ===== -->
-<section class="bg-light">
+<section class="bg-light" id="core-values">
   <div class="sec-inner">
     <span class="sec-eyebrow">Our Core Values</span>
     <h2 class="sec-heading">What we stand for — every project, every conversation.</h2>
@@ -350,11 +380,12 @@ footer a:hover{color:#fff}
   </div>
 </section>
 
-<!-- ===== LEADERSHIP & TEAM ===== -->
-<section>
+<!-- ===== LEADERSHIP TEAM ===== -->
+<section id="leadership-team">
   <div class="sec-inner">
-    <span class="sec-eyebrow">Leadership Team</span>
+    <span class="sec-eyebrow">Meet the Team</span>
     <h2 class="sec-heading">Seasoned industry experts leveraging their marketplace network.</h2>
+    <h3 class="team-group-title">Leadership Team</h3>
     <div class="team">
       <div class="member">
         <a href="team/randy-cohen.html"><img class="avatar" src="assets/images/team/randy-cohen.png" alt="Randy Cohen" /></a>
@@ -387,9 +418,14 @@ footer a:hover{color:#fff}
         <a class="bio-link" href="team/jenna-rakos.html">View Bio →</a>
       </div>
     </div>
+  </div>
+</section>
 
-    <h3 style="margin-top:80px;font-size:28px;font-weight:700;color:var(--navy-3);letter-spacing:-.015em">Business Intelligence Team</h3>
-    <p style="font-size:15.5px;color:var(--gray-1);margin-top:6px">A proven team delivering smart solutions.</p>
+<!-- ===== BUSINESS INTELLIGENCE TEAM ===== -->
+<section class="bg-light tight" id="business-intelligence-team">
+  <div class="sec-inner">
+    <h3 class="team-group-title">Business Intelligence Team</h3>
+    <p class="team-group-sub">A proven team delivering smart solutions.</p>
     <div class="team">
       <div class="member">
         <a href="team/nicole-perrin.html"><img class="avatar" src="assets/images/team/nicole-perrin.png" alt="Nicole Perrin" /></a>
@@ -434,9 +470,14 @@ footer a:hover{color:#fff}
         <a class="bio-link" href="team/brenna-smith.html">View Bio →</a>
       </div>
     </div>
+  </div>
+</section>
 
-    <h3 style="margin-top:80px;font-size:28px;font-weight:700;color:var(--navy-3);letter-spacing:-.015em">Research Operations Team</h3>
-    <p style="font-size:15.5px;color:var(--gray-1);margin-top:6px">Operational excellence behind every study, from fielding to final report.</p>
+<!-- ===== RESEARCH OPERATIONS TEAM ===== -->
+<section class="tight" id="research-operations-team">
+  <div class="sec-inner">
+    <h3 class="team-group-title">Research Operations Team</h3>
+    <p class="team-group-sub">Operational excellence behind every study, from fielding to final report.</p>
     <div class="team">
       <div class="member">
         <a href="team/doug-houghton.html"><img class="avatar" src="assets/images/team/doug-houghton.png" alt="Doug Houghton" /></a>
@@ -505,9 +546,14 @@ footer a:hover{color:#fff}
         <a class="bio-link" href="team/yijie-zhu.html">View Bio →</a>
       </div>
     </div>
+  </div>
+</section>
 
-    <h3 style="margin-top:80px;font-size:28px;font-weight:700;color:var(--navy-3);letter-spacing:-.015em">Sales Team</h3>
-    <p style="font-size:15.5px;color:var(--gray-1);margin-top:6px">Trusted partners connecting clients to the right research solutions.</p>
+<!-- ===== SALES TEAM ===== -->
+<section class="bg-light tight" id="sales-team">
+  <div class="sec-inner">
+    <h3 class="team-group-title">Sales Team</h3>
+    <p class="team-group-sub">Trusted partners connecting clients to the right research solutions.</p>
     <div class="team">
       <div class="member">
         <a href="team/andrew-sippel.html"><img class="avatar" src="assets/images/team/andrew-sippel.png" alt="Andrew Sippel" /></a>
@@ -522,12 +568,6 @@ footer a:hover{color:#fff}
         <a class="bio-link" href="team/diane-malloy.html">View Bio →</a>
       </div>
       <div class="member">
-        <a href="team/jacqueline-baranov.html"><img class="avatar" src="assets/images/team/jacqueline-baranov.png" alt="Jacqueline Baranov" /></a>
-        <h5>Jacqueline Baranov</h5>
-        <div class="role">VP, Consulting</div>
-        <a class="bio-link" href="team/jacqueline-baranov.html">View Bio →</a>
-      </div>
-      <div class="member">
         <a href="team/cara-walkin.html"><img class="avatar" src="assets/images/team/cara-walkin.png" alt="Cara Walkin" /></a>
         <h5>Cara Walkin</h5>
         <div class="role">Senior Account Manager</div>
@@ -540,9 +580,14 @@ footer a:hover{color:#fff}
         <a class="bio-link" href="team/eliza-brooks.html">View Bio →</a>
       </div>
     </div>
+  </div>
+</section>
 
-    <h3 style="margin-top:80px;font-size:28px;font-weight:700;color:var(--navy-3);letter-spacing:-.015em">Hub Team</h3>
-    <p style="font-size:15.5px;color:var(--gray-1);margin-top:6px">Powering AP's Ad Insights Hub — syndicated research, forecasts, and AI-enabled tools.</p>
+<!-- ===== HUB TEAM ===== -->
+<section class="tight" id="hub-team">
+  <div class="sec-inner">
+    <h3 class="team-group-title">Hub Team</h3>
+    <p class="team-group-sub">Powering AP's Ad Insights Hub — syndicated research, forecasts, and AI-enabled tools.</p>
     <div class="team">
       <div class="member">
         <a href="team/stuart-schneiderman.html"><img class="avatar" src="assets/images/team/stuart-schneiderman.png" alt="Stuart Schneiderman" /></a>
