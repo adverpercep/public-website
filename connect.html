@@ -132,6 +132,7 @@ section.tight{padding:64px 32px}
 .form-card{background:#fff;border:1px solid var(--gray-5);border-radius:20px;padding:36px;box-shadow:0 4px 16px rgba(16,27,95,.04)}
 .form-card h2{font-size:22px;font-weight:600;color:var(--navy-3);margin-bottom:8px}
 .form-card > p{font-size:14.5px;color:var(--gray-1);margin-bottom:24px}
+.form-required-note{font-size:12px;color:var(--gray-1);margin-bottom:16px}
 .field{display:flex;flex-direction:column;gap:6px;margin-bottom:16px}
 .field label{font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--navy-3)}
 .field input,.field select,.field textarea{padding:12px 14px;border:1px solid var(--gray-4);border-radius:10px;font-family:var(--font);font-size:14.5px;color:var(--ink);background:#fff}
@@ -257,47 +258,50 @@ footer a:hover{color:#fff}
       <div class="form-card">
         <h2>Contact Us</h2>
         <p>Tell us a bit about your situation and we'll route you to the right expert within 1 business day.</p>
-        <div class="field">
-          <label for="email">Business Email *</label>
-          <input id="email" type="email" placeholder="you@company.com" />
-        </div>
-        <div class="field-row">
+        <form action="#" method="post">
+          <p class="form-required-note">* required field</p>
           <div class="field">
-            <label for="fname">First Name *</label>
-            <input id="fname" type="text" />
+            <label for="email">Business Email *</label>
+            <input id="email" type="email" placeholder="you@company.com" required />
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label for="fname">First Name *</label>
+              <input id="fname" type="text" required />
+            </div>
+            <div class="field">
+              <label for="lname">Last Name *</label>
+              <input id="lname" type="text" required />
+            </div>
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label for="company">Company *</label>
+              <input id="company" type="text" required />
+            </div>
+            <div class="field">
+              <label for="title">Job Title *</label>
+              <input id="title" type="text" required />
+            </div>
           </div>
           <div class="field">
-            <label for="lname">Last Name *</label>
-            <input id="lname" type="text" />
+            <label for="interest">I'm interested in…</label>
+            <select id="interest">
+              <option value="">Select one</option>
+              <option value="brand-tracking">Brand tracking &amp; health</option>
+              <option value="syndicated-reports">Syndicated reports / Ad Insights Hub</option>
+              <option value="custom-research">Proprietary / custom research</option>
+              <option value="adpros">Joining the AdPROs Network</option>
+              <option value="press">Press inquiry</option>
+              <option value="careers">Careers / general</option>
+            </select>
           </div>
-        </div>
-        <div class="field-row">
           <div class="field">
-            <label for="company">Company *</label>
-            <input id="company" type="text" />
+            <label for="message">How Can We Help?</label>
+            <textarea id="message" rows="4" placeholder="A few sentences about your goal helps us route you to the right expert."></textarea>
           </div>
-          <div class="field">
-            <label for="title">Job Title *</label>
-            <input id="title" type="text" />
-          </div>
-        </div>
-        <div class="field">
-          <label for="interest">I'm interested in…</label>
-          <select id="interest">
-            <option value="">Select one</option>
-            <option value="brand-tracking">Brand tracking &amp; health</option>
-            <option value="syndicated-reports">Syndicated reports / Ad Insights Hub</option>
-            <option value="custom-research">Proprietary / custom research</option>
-            <option value="adpros">Joining the AdPROs Network</option>
-            <option value="press">Press inquiry</option>
-            <option value="careers">Careers / general</option>
-          </select>
-        </div>
-        <div class="field">
-          <label for="message">How Can We Help?</label>
-          <textarea id="message" rows="4" placeholder="A few sentences about your goal helps us route you to the right expert."></textarea>
-        </div>
-        <button class="btn btn-magenta" style="margin-top:8px" type="submit">Send Message →</button>
+          <button class="btn btn-magenta" style="margin-top:8px" type="submit">Send Message →</button>
+        </form>
       </div>
 
       <!-- Sidebar -->
@@ -414,7 +418,7 @@ footer a:hover{color:#fff}
   });
 })();
 </script>
-<script src="assets/js/animate.js" defer></script><script src="assets/js/cta-toggle.js?v=2" defer></script>
+<script src="assets/js/animate.js" defer></script><script src="assets/js/cta-toggle.js?v=3" defer></script>
 </body>
 </html>
 

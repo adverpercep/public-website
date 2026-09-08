@@ -161,7 +161,11 @@ section.tight{padding:64px 32px}
 
 /* ===== Proof bar ===== */
 .proof{background:#fff;padding:64px 32px;border-top:1px solid var(--gray-5)}
-.proof-label{text-align:center;font-size:12px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--gray-1);margin-bottom:32px}
+.proof-label-row{display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:32px}
+.proof-label{text-align:center;font-size:12px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--gray-1)}
+.proof-pause{width:26px;height:26px;border-radius:50%;border:1px solid var(--gray-4);background:#fff;color:var(--gray-1);display:grid;place-items:center;cursor:pointer;flex-shrink:0;padding:0}
+.proof-pause:hover{background:var(--gray-5);color:var(--navy-3)}
+.proof-pause .material-symbols-outlined{font-size:15px}
 .proof-rows{max-width:1280px;margin:0 auto}
 .proof-row{display:grid;grid-template-columns:repeat(6,1fr);gap:32px;align-items:center}
 .logo-placeholder{height:52px;display:grid;place-items:center}
@@ -548,7 +552,12 @@ footer a:hover{color:#fff}
 
 <!-- ===== PROOF BAR ===== -->
 <div class="proof">
-  <div class="proof-label">Trusted by the most successful media, advertising, ad tech &amp; martech companies</div>
+  <div class="proof-label-row">
+    <div class="proof-label">Trusted by the most successful media, advertising, ad tech &amp; martech companies</div>
+    <button class="proof-pause" id="logoPause" aria-label="Pause logo rotation" aria-pressed="false">
+      <span class="material-symbols-outlined" aria-hidden="true">pause</span>
+    </button>
+  </div>
   <div class="proof-rows">
     <div class="proof-row" id="logoRow">
       <div class="logo-placeholder"><img class="proof-logo" src="assets/images/client-logos/Netflix-Logo.png" alt="Netflix"></div>
@@ -822,7 +831,41 @@ footer a:hover{color:#fff}
       slots.forEach(function(img){ img.style.opacity=''; });
     }, 550);
   }
-  setInterval(rotate, 4000);
+
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var pauseBtn = document.getElementById('logoPause');
+  var timer = null;
+  var running = false;
+
+  function start(){
+    if(running) return;
+    timer = setInterval(rotate, 4000);
+    running = true;
+    if(pauseBtn){
+      pauseBtn.setAttribute('aria-pressed','false');
+      pauseBtn.setAttribute('aria-label','Pause logo rotation');
+      pauseBtn.querySelector('.material-symbols-outlined').textContent = 'pause';
+    }
+  }
+  function stop(){
+    clearInterval(timer);
+    running = false;
+    if(pauseBtn){
+      pauseBtn.setAttribute('aria-pressed','true');
+      pauseBtn.setAttribute('aria-label','Resume logo rotation');
+      pauseBtn.querySelector('.material-symbols-outlined').textContent = 'play_arrow';
+    }
+  }
+
+  if(pauseBtn){
+    pauseBtn.addEventListener('click', function(){ running ? stop() : start(); });
+  }
+
+  if(reduceMotion){
+    stop();
+  } else {
+    start();
+  }
 })();
 </script>
 <script>
@@ -844,7 +887,7 @@ footer a:hover{color:#fff}
   });
 })();
 </script>
-<script src="assets/js/animate.js" defer></script><script src="assets/js/cta-toggle.js?v=2" defer></script>
+<script src="assets/js/animate.js" defer></script><script src="assets/js/cta-toggle.js?v=3" defer></script>
 </body>
 </html>
 

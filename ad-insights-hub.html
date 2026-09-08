@@ -176,6 +176,7 @@ section.tight{padding:64px 32px}
 .contact-grid{display:grid;grid-template-columns:1.3fr 1fr;gap:64px;margin-top:48px;align-items:start}
 .form-card{background:#fff;border:1px solid var(--gray-5);border-radius:20px;padding:36px;box-shadow:0 4px 16px rgba(16,27,95,.04)}
 .form-card h3{font-size:22px;font-weight:600;color:var(--navy-3);margin-bottom:8px}
+.form-required-note{font-size:12px;color:var(--gray-1);margin-bottom:16px}
 .form-card p{font-size:14.5px;color:var(--gray-1);margin-bottom:24px}
 .field{display:flex;flex-direction:column;gap:6px;margin-bottom:16px}
 .field label{font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--navy-3)}
@@ -442,17 +443,20 @@ footer a:hover{color:#fff}
       <div class="form-card">
         <h3>Contact Us to Learn More</h3>
         <p>Fill out the form below — or contact Lauren directly.</p>
-        <div class="field"><label>Business Email *</label><input type="email"></div>
-        <div class="field-row">
-          <div class="field"><label>First Name *</label><input type="text"></div>
-          <div class="field"><label>Last Name *</label><input type="text"></div>
-        </div>
-        <div class="field-row">
-          <div class="field"><label>Company *</label><input type="text"></div>
-          <div class="field"><label>Job Title *</label><input type="text"></div>
-        </div>
-        <div class="field"><label>How Can We Help?</label><textarea rows="4"></textarea></div>
-        <button class="btn btn-magenta">Send Message →</button>
+        <form action="#" method="post">
+          <p class="form-required-note">* required field</p>
+          <div class="field"><label for="hub-email">Business Email *</label><input id="hub-email" type="email" required></div>
+          <div class="field-row">
+            <div class="field"><label for="hub-fname">First Name *</label><input id="hub-fname" type="text" required></div>
+            <div class="field"><label for="hub-lname">Last Name *</label><input id="hub-lname" type="text" required></div>
+          </div>
+          <div class="field-row">
+            <div class="field"><label for="hub-company">Company *</label><input id="hub-company" type="text" required></div>
+            <div class="field"><label for="hub-title">Job Title *</label><input id="hub-title" type="text" required></div>
+          </div>
+          <div class="field"><label for="hub-message">How Can We Help?</label><textarea id="hub-message" rows="4"></textarea></div>
+          <button class="btn btn-magenta" type="submit">Send Message →</button>
+        </form>
       </div>
       <div class="contact-sidebar">
         <div class="contact-block">
@@ -534,7 +538,7 @@ footer a:hover{color:#fff}
   });
 })();
 </script>
-<script src="assets/js/animate.js" defer></script><script src="assets/js/cta-toggle.js?v=2" defer></script>
+<script src="assets/js/animate.js" defer></script><script src="assets/js/cta-toggle.js?v=3" defer></script>
 </body>
 </html>
 
