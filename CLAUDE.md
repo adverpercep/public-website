@@ -192,10 +192,8 @@ Each form target in the HTML:
 | `ad-insights-hub.html` | Hub Membership Inquiry | _pending_ |
 | `insights.html` | Newsletter Signup | _pending_ |
 
-### Bare `#` hrefs (intentional — TBD)
-- X / Twitter footer link — no URL provided yet
-- Privacy Policy footer — page not built
-- Website Accessibility Statement footer — page not built
+### Footer legal links
+Privacy Policy and Website Accessibility Statement link out to the live pages on advertiserperceptions.com (external, `target="_blank"`) rather than local pages — no local versions are planned. No X/Twitter footer link exists (client no longer maintains that platform).
 
 ---
 
