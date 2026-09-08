@@ -248,14 +248,20 @@ section#leadership-team .team-group-title{margin-top:56px}
 
 /* ===== Page-specific: jump nav ===== */
 html{scroll-behavior:smooth}
-[id]{scroll-margin-top:132px}
-.jump-nav{position:sticky;top:73px;z-index:90;background:#fff;border-bottom:1px solid var(--gray-5);box-shadow:0 1px 0 rgba(16,27,95,.04)}
+[id]{scroll-margin-top:90px}
+.jump-nav{background:#fff;border-bottom:1px solid var(--gray-5)}
 .jump-nav-inner{max-width:1280px;margin:0 auto;padding:12px 32px;display:flex;gap:6px;flex-wrap:wrap;align-items:center;overflow-x:auto}
 .jump-nav a{font-size:13px;font-weight:600;color:var(--gray-1);text-decoration:none;padding:8px 14px;border-radius:999px;white-space:nowrap;transition:background .15s,color .15s}
 .jump-nav a:hover{background:var(--gray-5);color:var(--navy-3)}
 @media (max-width:640px){
   .jump-nav-inner{padding:10px 20px}
 }
+
+/* ===== Page-specific: back to top ===== */
+.back-to-top{position:fixed;bottom:22px;left:22px;width:46px;height:46px;border-radius:50%;background:var(--navy-3);color:#fff;border:none;cursor:pointer;align-items:center;justify-content:center;box-shadow:0 6px 20px rgba(16,27,95,.25);z-index:150;opacity:0;visibility:hidden;transform:translateY(8px);transition:opacity .2s,transform .2s,background .15s}
+.back-to-top.visible{opacity:1;visibility:visible;transform:translateY(0)}
+.back-to-top:hover{background:var(--navy-2)}
+.back-to-top .material-symbols-outlined{font-size:22px}
 </style>
 </head>
 <body>
@@ -662,6 +668,11 @@ html{scroll-behavior:smooth}
   </div>
 </footer>
 
+<!-- ===== BACK TO TOP ===== -->
+<button class="back-to-top" id="backToTop" aria-label="Back to top">
+  <span class="material-symbols-outlined">arrow_upward</span>
+</button>
+
 <script>
 (function(){
   var toggle = document.getElementById('navToggle');
@@ -678,6 +689,16 @@ html{scroll-behavior:smooth}
       toggle.setAttribute('aria-expanded', 'false');
       toggle.querySelector('.material-symbols-outlined').textContent = 'menu';
     }
+  });
+})();
+(function(){
+  var btn = document.getElementById('backToTop');
+  if(!btn) return;
+  window.addEventListener('scroll', function(){
+    btn.classList.toggle('visible', window.scrollY > 500);
+  }, { passive: true });
+  btn.addEventListener('click', function(){
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 })();
 </script>

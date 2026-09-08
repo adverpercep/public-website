@@ -1,30 +1,13 @@
-/* AP CTA Color + Layout Density Preview Toggle — client-facing, dev/preview only */
+/* AP Layout Density Preview Toggle — client-facing, dev/preview only */
 (function () {
-  var KEY = 'ap-cta-scheme';
   var MARGIN_KEY = 'ap-tight-margins';
-  var TEAL    = { bg: '#0B8395', hover: '#10697F', outline: '#D9EEF2', label: 'Teal' };
-  var MAGENTA = { bg: '#DA0058', hover: '#B5004A', outline: '#FFD9E6', label: 'Magenta' };
+  var ACCENT = '#0B8395';
 
-  var scheme = sessionStorage.getItem(KEY) || 'teal';
   var tightMargins = sessionStorage.getItem(MARGIN_KEY) === '1';
 
   /* ── Inject override styles ── */
   var st = document.createElement('style');
   st.textContent = [
-    /* solid buttons */
-    'body.cta-magenta .btn-primary{background:' + MAGENTA.bg + '!important}',
-    'body.cta-magenta .btn-primary:hover{background:' + MAGENTA.hover + '!important}',
-    'body.cta-magenta .btn-magenta{background:' + MAGENTA.bg + '!important}',
-    'body.cta-magenta .btn-magenta:hover{background:' + MAGENTA.hover + '!important}',
-    /* nav CTA */
-    'body.cta-magenta .contact-cta{background:' + MAGENTA.bg + '!important}',
-    'body.cta-magenta .contact-cta:hover{background:' + MAGENTA.hover + '!important}',
-    /* outline button */
-    'body.cta-magenta .btn-teal-outline{color:' + MAGENTA.bg + '!important;border-color:' + MAGENTA.bg + '!important}',
-    'body.cta-magenta .btn-teal-outline:hover{background:' + MAGENTA.outline + '!important}',
-    /* hero promo pill */
-    'body.cta-magenta .hero-promo .pill{background:' + MAGENTA.bg + '!important}',
-
     /* ── Tighter margins preview ── */
     'body.tight-margins section{padding:56px 32px!important}',
     'body.tight-margins section.tight{padding:40px 32px!important}',
@@ -45,14 +28,6 @@
     'body.tight-margins .about-stats{padding:32px 32px!important}',
   ].join('');
   document.head.appendChild(st);
-
-  /* ── Apply scheme to body ── */
-  function applyScheme(s) {
-    scheme = s;
-    sessionStorage.setItem(KEY, s);
-    document.body.classList.toggle('cta-magenta', s === 'magenta');
-    renderUI();
-  }
 
   /* ── Apply margin density to body ── */
   function applyMargins(on) {
@@ -89,41 +64,15 @@
     var dot = document.createElement('span');
     css(dot, {
       width: '7px', height: '7px', borderRadius: '50%',
-      display: 'inline-block', flexShrink: '0',
+      display: 'inline-block', flexShrink: '0', background: ACCENT,
     });
     lbl.appendChild(dot);
     lbl.appendChild(document.createTextNode('Options'));
-    widget._dot = dot;
-
-    /* button row */
-    var row = document.createElement('div');
-    css(row, { display: 'flex', gap: '8px' });
-
-    function makeBtn(id, color) {
-      var btn = document.createElement('button');
-      css(btn, {
-        flex: '1', padding: '8px 10px', borderRadius: '8px', border: 'none',
-        cursor: 'pointer', fontFamily: 'inherit', fontSize: '12px',
-        fontWeight: '700', letterSpacing: '.03em', color: '#fff',
-        background: color.bg, transition: 'opacity .15s, outline .1s',
-        outline: '2.5px solid transparent', outlineOffset: '2px',
-      });
-      btn.textContent = color.label;
-      btn.addEventListener('click', function () { applyScheme(id); });
-      return btn;
-    }
-
-    widget._tBtn = makeBtn('teal', TEAL);
-    widget._mBtn = makeBtn('magenta', MAGENTA);
-
-    row.appendChild(widget._tBtn);
-    row.appendChild(widget._mBtn);
 
     /* margin density row */
     var marginRow = document.createElement('div');
     css(marginRow, {
       display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-      marginTop: '12px', paddingTop: '12px', borderTop: '1px solid rgba(8,0,84,.08)',
     });
     var marginLbl = document.createElement('span');
     css(marginLbl, { fontSize: '12px', fontWeight: '600', color: '#4A5568' });
@@ -166,7 +115,6 @@
     siteLink.addEventListener('mouseleave', function () { siteLink.style.background = 'transparent'; });
 
     widget.appendChild(lbl);
-    widget.appendChild(row);
     widget.appendChild(marginRow);
     widget.appendChild(siteLink);
     document.body.appendChild(widget);
@@ -174,11 +122,7 @@
 
   function renderUI() {
     if (!widget) return;
-    var isMag = scheme === 'magenta';
-    css(widget._tBtn, { opacity: isMag ? '.4' : '1', outlineColor: isMag ? 'transparent' : TEAL.bg });
-    css(widget._mBtn, { opacity: isMag ? '1' : '.4', outlineColor: isMag ? MAGENTA.bg : 'transparent' });
-    css(widget._dot, { background: isMag ? MAGENTA.bg : TEAL.bg });
-    css(widget._marginSw, { background: tightMargins ? TEAL.bg : '#D0D5DD' });
+    css(widget._marginSw, { background: tightMargins ? ACCENT : '#D0D5DD' });
     css(widget._marginKnob, { transform: tightMargins ? 'translateX(16px)' : 'translateX(0)' });
   }
 
@@ -339,6 +283,5 @@
 
   /* ── Init ── (defer guarantees body exists) */
   buildWidget();
-  applyScheme(scheme);
   applyMargins(tightMargins);
 })();
