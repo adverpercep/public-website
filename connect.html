@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Connect — Advertiser Perceptions</title>
+<meta name="description" content="Request a demo, inquire about Hub membership, or reach out to our team. We'd love to hear from you." />
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Advertiser Perceptions" />
+<meta property="og:title" content="Connect — Advertiser Perceptions" />
+<meta property="og:description" content="Request a demo, inquire about Hub membership, or reach out to our team. We'd love to hear from you." />
+<meta property="og:url" content="https://www.advertiserperceptions.com/connect/" />
+<meta property="og:image" content="https://www.advertiserperceptions.com/wp-content/uploads/2026/06/ap-og-image.png" />
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Connect — Advertiser Perceptions" />
+<meta name="twitter:description" content="Request a demo, inquire about Hub membership, or reach out to our team. We'd love to hear from you." />
+<meta name="twitter:image" content="https://www.advertiserperceptions.com/wp-content/uploads/2026/06/ap-og-image.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+<style>
+:root{
+  color-scheme: light;
+  --navy-1:#080054; --navy-2:#101B5F; --navy-3:#212E80; --navy-4:#303EAD;
+  --navy-5:#576FD2; --navy-6:#92ACEE; --navy-7:#D6E1FF;
+  --teal-1:#13536D; --teal-2:#10697F; --teal-3:#0B8395; --teal-4:#4DA0AD; --teal-5:#84B8BF;
+  --purple-1:#553F6A; --purple-2:#806399; --purple-3:#9778B2; --purple-4:#BFA5D4; --purple-5:#E1D2ED;
+  --accent-magenta:#DA0058; --accent-orange:#F4A046; --accent-yellow:#EDDA1A; --accent-pink:#D97DA0;
+  --positive:#00AA49; --negative:#C00000;
+  --gray-1:#676E7B; --gray-2:#8C97A2; --gray-3:#B2B8C0; --gray-4:#D0D5DD; --gray-5:#E4EBF1;
+  --ink:#101B5F;
+  --gradient-navy: radial-gradient(120% 120% at 20% 10%, #1C2971 0%, #1C2971 23%, #18235F 69%, #0A1040 100%);
+  --font: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{font-family:var(--font);color:var(--ink);background:#fff;line-height:1.5;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+
+/* ===== Primary nav ===== */
+.primary-nav{background:#fff;border-bottom:1px solid var(--gray-5);position:sticky;top:0;z-index:100;box-shadow:0 1px 0 rgba(16,27,95,.04);position:relative}
+.primary-nav-inner{max-width:1280px;margin:0 auto;padding:14px 32px;display:flex;align-items:center;justify-content:space-between;gap:32px}
+.logo{display:flex;align-items:center;gap:12px;text-decoration:none}
+.logo img{height:44px;width:auto;display:block}
+.nav-items{display:flex;gap:22px;align-items:center}
+.nav-items a{text-decoration:none;color:var(--navy-3);font-weight:500;font-size:13.5px;position:relative;padding:8px 0}
+.nav-items a.active{color:var(--teal-3);font-weight:600}
+.nav-items a.active::after{content:"";position:absolute;left:0;right:0;bottom:-16px;height:3px;background:var(--teal-3);border-radius:2px}
+.nav-items a:hover{color:var(--teal-3)}
+.nav-actions{display:flex;gap:12px;align-items:center}
+.search-icon{width:38px;height:38px;border-radius:50%;background:var(--gray-5);color:var(--navy-3);display:grid;place-items:center;cursor:pointer;border:none;font-size:18px}
+.hub-login-btn{background:var(--gray-5);color:var(--navy-3);text-decoration:none;padding:10px 18px;border-radius:999px;font-weight:600;font-size:13.5px}
+.hub-login-btn:hover{background:var(--gray-4);color:var(--navy-2)}
+.contact-cta{background:var(--teal-3);color:#fff;text-decoration:none;padding:10px 20px;border-radius:999px;font-weight:600;font-size:14px}
+.contact-cta:hover{background:var(--teal-2)}
+
+/* ===== Hero ===== */
+.hero{position:relative;background:var(--gradient-navy);color:#fff;padding:96px 32px 120px;overflow:hidden}
+.hero.compact{padding:64px 32px 80px}
+.hero-inner{max-width:1280px;margin:0 auto;position:relative;z-index:2}
+.hero-eyebrow{display:inline-block;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.25);padding:6px 16px;border-radius:999px;font-size:12px;letter-spacing:.15em;text-transform:uppercase;font-weight:500;margin-bottom:24px}
+.hero h1{font-size:62px;line-height:1.05;font-weight:700;max-width:860px;letter-spacing:-.02em}
+.hero.compact h1{font-size:52px}
+.hero h1 em{font-style:normal;color:var(--accent-orange)}
+.hero-sub{font-size:19px;line-height:1.55;font-weight:300;max-width:680px;margin-top:20px;color:rgba(255,255,255,.9)}
+.hero-ctas{display:flex;gap:16px;margin-top:36px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:14px 28px;border-radius:999px;font-weight:600;font-size:15px;text-decoration:none;border:none;cursor:pointer;transition:transform .15s,box-shadow .15s;font-family:var(--font)}
+.btn:hover{transform:translateY(-1px)}
+.btn-primary{background:var(--teal-3);color:#fff}
+.btn-primary:hover{background:var(--teal-2)}
+.btn-ghost{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.5)}
+.btn-ghost:hover{background:rgba(255,255,255,.1)}
+.btn-magenta{background:var(--teal-3);color:#fff}
+.btn-magenta:hover{background:var(--teal-2)}
+.btn-dark{background:var(--navy-3);color:#fff}
+.btn-outline{background:transparent;color:var(--navy-3);border:1.5px solid var(--navy-3)}
+.btn-outline:hover{background:var(--navy-7)}
+.btn-teal-outline{background:transparent;color:var(--teal-3);border:1.5px solid var(--teal-3)}
+.btn-teal-outline:hover{background:#D9EEF2}
+.btn-sm{padding:10px 20px;font-size:13.5px}
+
+/* Hex backdrop */
+.hex-field{position:absolute;inset:0;pointer-events:none;opacity:.55}
+.hex{position:absolute;clip-path:polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)}
+.hex-1{top:-40px;right:8%;width:160px;height:184px;background:var(--navy-5);opacity:.35}
+.hex-2{top:30%;right:22%;width:90px;height:104px;background:var(--teal-4);opacity:.25}
+.hex-3{bottom:-50px;right:-20px;width:220px;height:254px;background:var(--navy-4);opacity:.3}
+.hex-4{top:20%;right:4%;width:60px;height:70px;background:var(--accent-magenta);opacity:.5}
+.hex-5{bottom:20%;right:30%;width:50px;height:58px;border:3px solid var(--teal-5);background:transparent;opacity:.6}
+
+/* ===== Sections ===== */
+section{padding:88px 32px}
+section.tight{padding:64px 32px}
+.sec-inner{max-width:1280px;margin:0 auto}
+.sec-eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:12px;letter-spacing:.18em;text-transform:uppercase;font-weight:600;color:var(--teal-3);margin-bottom:16px}
+.sec-eyebrow::before{content:"";width:32px;height:4px;background:var(--teal-3);clip-path:polygon(6px 0%,100% 0%,calc(100% - 6px) 100%,0% 100%);flex-shrink:0}
+.sec-eyebrow.magenta{color:var(--accent-magenta)} .sec-eyebrow.magenta::before{background:var(--accent-magenta)}
+.sec-eyebrow.purple{color:var(--purple-2)} .sec-eyebrow.purple::before{background:var(--purple-2)}
+.sec-eyebrow.orange{color:var(--accent-orange)} .sec-eyebrow.orange::before{background:var(--accent-orange)}
+.sec-heading{font-size:44px;line-height:1.1;font-weight:700;color:var(--navy-3);letter-spacing:-.015em;max-width:860px}
+.sec-heading.center{margin-left:auto;margin-right:auto;text-align:center}
+.sec-lede{font-size:18px;line-height:1.6;color:var(--gray-1);max-width:720px;margin-top:16px;font-weight:400}
+.sec-lede.center{margin-left:auto;margin-right:auto;text-align:center}
+.sec-head-row{display:flex;justify-content:space-between;align-items:flex-end;gap:32px;margin-bottom:48px;flex-wrap:wrap}
+
+/* Backgrounds */
+.bg-light{background:#F7F9FC}
+.bg-navy{background:var(--navy-3);color:#fff}
+
+/* ===== Cards ===== */
+.cards{display:grid;gap:24px;margin-top:48px}
+.cards.cols-2{grid-template-columns:repeat(2,1fr)}
+.cards.cols-3{grid-template-columns:repeat(3,1fr)}
+.cards.cols-4{grid-template-columns:repeat(4,1fr)}
+.card{background:#fff;border:1px solid var(--gray-5);border-radius:16px;padding:28px;display:flex;flex-direction:column;gap:14px;transition:transform .15s,box-shadow .15s}
+.card:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(16,27,95,.08)}
+.card .ico{width:48px;height:48px;border-radius:12px;background:var(--navy-7);color:var(--navy-3);display:grid;place-items:center;font-size:22px;font-weight:700;flex-shrink:0}
+.card.teal .ico{background:#D9EEF2;color:var(--teal-3)}
+.card.purple .ico{background:var(--purple-5);color:var(--purple-2)}
+.card.orange .ico{background:#FDE4C6;color:#B5651D}
+.card.magenta .ico{background:#FFD9E6;color:var(--accent-magenta)}
+.card h4{font-size:18px;line-height:1.25;font-weight:600;color:var(--navy-3);letter-spacing:-.005em}
+.card p{font-size:14.5px;line-height:1.55;color:var(--gray-1)}
+.card a.cardlink{margin-top:auto;color:var(--teal-3);font-weight:600;font-size:13.5px;text-decoration:none;display:inline-flex;align-items:center;gap:6px}
+.card a.cardlink:hover{color:var(--teal-2)}
+
+/* ===== Contact form ===== */
+.contact-grid{display:grid;grid-template-columns:1.3fr 1fr;gap:64px;margin-top:48px;align-items:start}
+.form-card{background:#fff;border:1px solid var(--gray-5);border-radius:20px;padding:36px;box-shadow:0 4px 16px rgba(16,27,95,.04)}
+.form-card h3{font-size:22px;font-weight:600;color:var(--navy-3);margin-bottom:8px}
+.form-card > p{font-size:14.5px;color:var(--gray-1);margin-bottom:24px}
+.field{display:flex;flex-direction:column;gap:6px;margin-bottom:16px}
+.field label{font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--navy-3)}
+.field input,.field select,.field textarea{padding:12px 14px;border:1px solid var(--gray-4);border-radius:10px;font-family:var(--font);font-size:14.5px;color:var(--ink);background:#fff}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--teal-3);box-shadow:0 0 0 3px rgba(11,131,149,.15)}
+.field-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.contact-sidebar{display:flex;flex-direction:column;gap:24px}
+.contact-block{background:#fff;border:1px solid var(--gray-5);border-radius:16px;padding:24px}
+.contact-block h5{font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--teal-3);margin-bottom:10px}
+.contact-block p{font-size:14.5px;line-height:1.55;color:var(--ink)}
+.contact-block a{color:var(--navy-3);text-decoration:none;font-weight:500}
+.contact-block a:hover{color:var(--teal-3)}
+
+/* ===== Footer ===== */
+footer{background:var(--navy-1);color:rgba(255,255,255,.7);padding:64px 32px 32px}
+.foot-inner{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px}
+footer h5{color:#fff;font-size:13px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;margin-bottom:16px}
+footer ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+footer a{color:rgba(255,255,255,.7);text-decoration:none}
+footer a:hover{color:#fff}
+.foot-mark{display:flex;align-items:center;gap:12px;margin-bottom:20px}
+.foot-mark img{height:40px;width:auto}
+.foot-addr{font-size:13px;line-height:1.8;color:rgba(255,255,255,.65)}
+.foot-bottom{max-width:1280px;margin:48px auto 0;padding-top:24px;border-top:1px solid rgba(255,255,255,.1);display:flex;justify-content:space-between;font-size:12px;color:rgba(255,255,255,.5)}
+
+/* ===== Mobile nav ===== */
+.nav-hamburger{display:none;background:none;border:none;cursor:pointer;padding:6px;color:var(--navy-3)}
+.mobile-nav{display:none;position:absolute;top:100%;left:0;right:0;background:#fff;border-bottom:1px solid var(--gray-5);box-shadow:0 8px 24px rgba(16,27,95,.08);z-index:200;padding:16px 32px 24px}
+.mobile-nav.open{display:block}
+.mobile-nav a{display:block;padding:11px 0;font-size:15px;font-weight:500;color:var(--navy-3);text-decoration:none;border-bottom:1px solid var(--gray-5)}
+.mobile-nav a:last-child{border-bottom:none}
+.mobile-nav a.active{color:var(--teal-3);font-weight:600}
+.mobile-nav a:hover{color:var(--teal-3)}
+
+/* ===== Responsive ===== */
+@media (max-width:1250px){
+  .hero h1{font-size:52px}
+  .hero.compact h1{font-size:44px}
+}
+@media (max-width:980px){
+  .hero h1,.hero.compact h1{font-size:40px}
+  .sec-heading{font-size:30px}
+  .contact-grid{grid-template-columns:1fr;gap:32px}
+  .cards.cols-3{grid-template-columns:repeat(2,1fr)}
+  .foot-inner{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:1000px){
+  .nav-items{display:none}
+  .nav-hamburger{display:flex;align-items:center;justify-content:center}
+}
+@media (max-width:640px){
+  section{padding:56px 20px}
+  .cards.cols-3{grid-template-columns:1fr}
+  .field-row{grid-template-columns:1fr}
+  .foot-inner{grid-template-columns:1fr}
+  .foot-bottom{flex-direction:column;gap:8px}
+}
+@media (max-width:550px){
+  .primary-nav-inner{padding:12px 20px}
+  .hero{padding:72px 20px 88px}
+  .hero.compact{padding:48px 20px 64px}
+  .hero h1,.hero.compact h1{font-size:32px}
+  .mobile-nav{padding:12px 20px 20px}
+}
+</style>
+</head>
+<body>
+
+<!-- Primary nav -->
+<nav class="primary-nav">
+  <div class="primary-nav-inner">
+    <a class="logo" href="index.html">
+      <img src="assets/images/AP-Master-Logo-RGB.png" alt="Advertiser Perceptions" />
+    </a>
+    <div class="nav-items">
+      <a href="index.html">Home</a>
+      <a href="results.html">What We Do</a>
+      <a href="solutions.html">Solutions</a>
+      <a href="insights.html">Insights</a>
+      <a href="ad-insights-hub.html">Ad Insights Hub</a>
+      <a href="about.html">About Us</a>
+      <a href="connect.html" class="active">Connect</a>
+    </div>
+    <div class="nav-actions">
+      <button class="search-icon" aria-label="Search">⌕</button>
+      <a class="hub-login-btn" href="https://www.apinsightshub.com/member-login/" target="_blank" rel="noopener">Hub Login</a>
+      <a class="contact-cta" href="connect.html">Contact Us</a>
+      <button class="nav-hamburger" id="navHamburger" aria-label="Open menu" aria-expanded="false">
+        <span class="material-symbols-outlined">menu</span>
+      </button>
+    </div>
+  </div>
+  <div class="mobile-nav" id="mobileNav">
+    <a href="index.html">Home</a>
+    <a href="results.html">What We Do</a>
+    <a href="solutions.html">Solutions</a>
+    <a href="insights.html">Insights</a>
+    <a href="ad-insights-hub.html">Ad Insights Hub</a>
+    <a href="about.html">About Us</a>
+    <a href="connect.html" class="active">Connect</a>
+  </div>
+</nav>
+
+<!-- ===== HERO ===== -->
+<section class="hero compact">
+  <div class="hero-inner">
+    <span class="hero-eyebrow">Connect with Advertiser Perceptions</span>
+    <h1>Let's <em>talk</em> about what advertisers are saying about your brand.</h1>
+    <p class="hero-sub">Whether you need a brand health review, want to license syndicated reports, or just want to learn more — our Business Intelligence team is ready.</p>
+  </div>
+</section>
+
+<!-- ===== CONTACT FORM + SIDEBAR ===== -->
+<section>
+  <div class="sec-inner">
+    <div class="contact-grid">
+
+      <!-- Form -->
+      <div class="form-card">
+        <h3>Contact Us</h3>
+        <p>Tell us a bit about your situation and we'll route you to the right expert within 1 business day.</p>
+        <div class="field">
+          <label for="email">Business Email *</label>
+          <input id="email" type="email" placeholder="you@company.com" />
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label for="fname">First Name *</label>
+            <input id="fname" type="text" />
+          </div>
+          <div class="field">
+            <label for="lname">Last Name *</label>
+            <input id="lname" type="text" />
+          </div>
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label for="company">Company *</label>
+            <input id="company" type="text" />
+          </div>
+          <div class="field">
+            <label for="title">Job Title *</label>
+            <input id="title" type="text" />
+          </div>
+        </div>
+        <div class="field">
+          <label for="interest">I'm interested in…</label>
+          <select id="interest">
+            <option value="">Select one</option>
+            <option value="brand-tracking">Brand tracking &amp; health</option>
+            <option value="syndicated-reports">Syndicated reports / Ad Insights Hub</option>
+            <option value="custom-research">Proprietary / custom research</option>
+            <option value="adpros">Joining the AdPROs Network</option>
+            <option value="press">Press inquiry</option>
+            <option value="careers">Careers / general</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="message">How Can We Help?</label>
+          <textarea id="message" rows="4" placeholder="A few sentences about your goal helps us route you to the right expert."></textarea>
+        </div>
+        <button class="btn btn-magenta" style="margin-top:8px" type="submit">Send Message →</button>
+      </div>
+
+      <!-- Sidebar -->
+      <div class="contact-sidebar">
+        <div class="contact-block">
+          <h5>Office</h5>
+          <p>1120 Avenue of the Americas<br>4th Floor<br>New York, NY 10036</p>
+        </div>
+        <div class="contact-block">
+          <h5>Phone</h5>
+          <p><a href="tel:2126266683">(212) 626-6683</a></p>
+        </div>
+        <div class="contact-block">
+          <h5>General Inquiries</h5>
+          <p><a href="mailto:info@advertiserperceptions.com">info@advertiserperceptions.com</a></p>
+        </div>
+        <div class="contact-block">
+          <h5>Ad Insights Hub Sales</h5>
+          <p><a href="mailto:Lauren.Fisher@AdvertiserPerceptions.com">Lauren.Fisher@AdvertiserPerceptions.com</a><br>Lauren Fisher, GM Business Intelligence</p>
+        </div>
+        <div class="contact-block" style="background:var(--navy-3);color:#fff;border-color:var(--navy-3)">
+          <h5 style="color:var(--accent-orange)">Press &amp; Analyst Relations</h5>
+          <p style="color:rgba(255,255,255,.9)">For interview requests, embargoed previews, or licensing AP data, contact our communications team.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== QUICK-LINK CARDS ===== -->
+<section class="bg-light tight">
+  <div class="sec-inner">
+    <div class="cards cols-3">
+      <div class="card teal">
+        <div class="ico"><span class="material-symbols-outlined">calendar_month</span></div>
+        <h4>Book a Demo</h4>
+        <p>30-minute walkthrough of the Ad Insights Hub with a Business Intelligence team member.</p>
+        <a class="cardlink" href="ad-insights-hub.html">Schedule →</a>
+      </div>
+      <div class="card purple">
+        <div class="ico"><span class="material-symbols-outlined">mic</span></div>
+        <h4>Join the AdPROs Network</h4>
+        <p>Become a member of our exclusive panel. We compensate participants for their expertise.</p>
+        <a class="cardlink" href="adpros.html">Apply →</a>
+      </div>
+      <div class="card orange">
+        <div class="ico"><span class="material-symbols-outlined">work</span></div>
+        <h4>Careers at AP</h4>
+        <p>See open roles and learn what it's like to work with our research team.</p>
+        <a class="cardlink" href="careers.html">View openings →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="foot-inner">
+    <div>
+      <div class="foot-mark">
+        <img src="assets/images/AP-Master-Logo-KO.png" alt="Advertiser Perceptions" />
+      </div>
+      <p class="foot-addr">1120 Avenue of the Americas, 4th Floor<br>New York, NY 10036<br>Phone: (212) 626-6683<br><a href="mailto:info@advertiserperceptions.com">info@advertiserperceptions.com</a></p>
+    </div>
+    <div>
+      <h5>Company</h5>
+      <ul>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="careers.html">Careers</a></li>
+        <li><a href="connect.html">Connect</a></li>
+        <li><a href="adpros.html">AP Ad Pros</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>What We Do</h5>
+      <ul>
+        <li><a href="solutions.html">Solutions</a></li>
+        <li><a href="results.html">Results &amp; Case Studies</a></li>
+        <li><a href="ad-insights-hub.html">Ad Insights Hub</a></li>
+        <li><a href="insights.html">Insights</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>Connect</h5>
+      <ul>
+        <li><a href="https://www.linkedin.com/company/advertiser-perceptions" target="_blank" rel="noopener">LinkedIn</a></li>
+        <li><a href="connect.html">Newsletter Signup</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <span>© 2026 Advertiser Perceptions. All logos and trademarks are the property of their respective owners.</span>
+    <span><a href="#">Privacy Policy</a> &nbsp;::&nbsp; <a href="#">Website Accessibility Statement</a></span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var btn=document.getElementById('navHamburger');
+  var nav=document.getElementById('mobileNav');
+  if(!btn||!nav)return;
+  btn.addEventListener('click',function(){
+    var open=nav.classList.toggle('open');
+    btn.setAttribute('aria-expanded',open);
+    btn.querySelector('.material-symbols-outlined').textContent=open?'close':'menu';
+  });
+  document.addEventListener('click',function(e){
+    if(!nav.contains(e.target)&&!btn.contains(e.target)){
+      nav.classList.remove('open');
+      btn.setAttribute('aria-expanded',false);
+      btn.querySelector('.material-symbols-outlined').textContent='menu';
+    }
+  });
+})();
+</script>
+<script src="assets/js/animate.js" defer></script><script src="assets/js/cta-toggle.js" defer></script>
+</body>
+</html>
+
+
+
+
+
+
+
+

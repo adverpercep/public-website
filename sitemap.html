@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Project Guide — AP 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy-1:#080054; --navy-2:#101B5F; --navy-3:#212E80; --navy-4:#303EAD;
+  --navy-5:#576FD2; --navy-6:#92ACEE; --navy-7:#D6E1FF;
+  --teal-1:#13536D; --teal-2:#10697F; --teal-3:#0B8395;
+  --purple-2:#806399; --purple-5:#E1D2ED;
+  --accent-magenta:#DA0058; --accent-orange:#F4A046;
+  --gray-1:#676E7B; --gray-2:#8C97A2; --gray-4:#D0D5DD; --gray-5:#E4EBF1;
+  --ink:#101B5F;
+  --gradient-navy: radial-gradient(120% 120% at 20% 10%, #1C2971 0%, #1C2971 23%, #18235F 69%, #0A1040 100%);
+  --font: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{font-family:var(--font);color:var(--ink);background:#F7F9FC;line-height:1.5;-webkit-font-smoothing:antialiased}
+
+/* ===== Top bar ===== */
+.topbar{background:var(--gradient-navy);padding:28px 40px 32px;color:#fff}
+.topbar-inner{max-width:1140px;margin:0 auto;display:flex;align-items:flex-start;justify-content:space-between;gap:24px;flex-wrap:wrap}
+.topbar-logo{display:flex;align-items:center;gap:12px}
+.topbar-logo img{height:40px;width:auto}
+.topbar-badge{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);color:rgba(255,255,255,.8);padding:4px 12px;border-radius:999px;font-size:10.5px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;align-self:center}
+.topbar h1{font-size:32px;font-weight:700;letter-spacing:-.02em;margin-top:20px}
+.topbar p{font-size:14px;color:rgba(255,255,255,.7);margin-top:6px;max-width:640px;line-height:1.6}
+.topbar-stats{display:flex;gap:24px;margin-top:16px;flex-wrap:wrap}
+.ts-item{font-size:12px;color:rgba(255,255,255,.6)}
+.ts-item strong{color:#fff;font-size:15px;font-weight:700;display:block}
+
+/* ===== Main layout ===== */
+.page-body{max-width:1140px;margin:0 auto;padding:40px 40px 72px}
+
+/* ===== Section groups ===== */
+.section-group{margin-bottom:40px}
+.group-header{display:flex;align-items:center;gap:14px;margin-bottom:20px}
+.group-icon{width:40px;height:40px;border-radius:10px;display:grid;place-items:center;font-size:18px;flex-shrink:0}
+.group-icon.navy{background:var(--navy-3);color:#fff}
+.group-icon.teal{background:var(--teal-3);color:#fff}
+.group-icon.purple{background:var(--purple-2);color:#fff}
+.group-icon.orange{background:var(--accent-orange);color:#fff}
+.group-icon.magenta{background:var(--accent-magenta);color:#fff}
+.group-title{font-size:18px;font-weight:700;color:var(--navy-2)}
+.group-count{font-size:12px;font-weight:600;color:var(--gray-2);background:var(--gray-5);padding:3px 10px;border-radius:999px}
+
+/* ===== Page cards ===== */
+.page-list{display:flex;flex-direction:column;gap:2px}
+.page-row{background:#fff;border:1px solid var(--gray-5);border-radius:12px;display:grid;grid-template-columns:1fr auto;align-items:center;gap:16px;padding:16px 20px;text-decoration:none;color:inherit;transition:border-color .15s,box-shadow .12s}
+.page-row:hover{border-color:var(--navy-6);box-shadow:0 3px 12px rgba(16,27,95,.08)}
+.page-row+.page-row{margin-top:6px}
+.pr-left{display:flex;align-items:center;gap:16px}
+.pr-indicator{width:10px;height:10px;border-radius:50%;flex-shrink:0}
+.pr-indicator.live{background:#00AA49}
+.pr-indicator.template{background:var(--accent-orange)}
+.pr-indicator.draft{background:var(--gray-4)}
+.pr-text{}
+.pr-title{font-size:15px;font-weight:600;color:var(--navy-2);line-height:1.3}
+.pr-desc{font-size:12.5px;color:var(--gray-1);margin-top:2px;line-height:1.4}
+.pr-path{font-size:11px;color:var(--gray-2);font-family:'SFMono-Regular',Consolas,'Liberation Mono',Menlo,monospace;margin-top:4px;background:var(--gray-5);display:inline-block;padding:2px 8px;border-radius:4px}
+.pr-actions{display:flex;gap:8px;align-items:center;flex-shrink:0}
+.view-btn{display:inline-flex;align-items:center;gap:6px;padding:8px 16px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;white-space:nowrap;border:1.5px solid transparent;transition:background .12s,border-color .12s;font-family:var(--font)}
+.view-btn.primary{background:var(--navy-3);color:#fff}
+.view-btn.primary:hover{background:var(--navy-2)}
+.view-btn.outline{background:#fff;color:var(--navy-3);border-color:var(--gray-4)}
+.view-btn.outline:hover{background:var(--navy-7);border-color:var(--navy-6)}
+.view-btn.teal{background:var(--teal-3);color:#fff}
+.view-btn.teal:hover{background:var(--teal-2)}
+
+/* ===== Legend ===== */
+.legend{display:flex;gap:20px;align-items:center;margin-bottom:32px;padding:14px 20px;background:#fff;border:1px solid var(--gray-5);border-radius:10px;flex-wrap:wrap}
+.legend-label{font-size:11.5px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--gray-1);margin-right:4px}
+.legend-item{display:flex;align-items:center;gap:7px;font-size:12.5px;color:var(--gray-1)}
+.legend-dot{width:9px;height:9px;border-radius:50%;flex-shrink:0}
+
+/* ===== Divider ===== */
+.section-divider{border:none;border-top:1px solid var(--gray-5);margin:36px 0}
+
+/* ===== Footer ===== */
+.page-footer{background:#fff;border-top:1px solid var(--gray-5);padding:20px 40px;text-align:center;font-size:12px;color:var(--gray-2)}
+.page-footer a{color:var(--teal-2);text-decoration:none}
+
+/* ===== Image-needed badges ===== */
+.pr-needs{display:flex;flex-wrap:wrap;gap:5px;margin-top:7px}
+.needs-img{display:inline-flex;align-items:center;gap:4px;font-size:11px;font-weight:600;color:#7A4800;background:#FFF3DC;border:1px solid #F7C87A;border-radius:4px;padding:2px 8px;line-height:1.5}
+.needs-form{display:inline-flex;align-items:center;gap:4px;font-size:11px;font-weight:600;color:#0B5560;background:#DDF3F6;border:1px solid #7DCAD4;border-radius:4px;padding:2px 8px;line-height:1.5}
+
+/* ===== Action cards ===== */
+.action-card{background:#fff;border:1.5px solid var(--navy-6);border-radius:12px;overflow:hidden;margin-top:0}
+.action-card+.action-card{margin-top:10px}
+.action-card-header{background:var(--navy-7);padding:14px 20px;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.action-tag{font-size:10.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;background:var(--navy-3);color:#fff;padding:3px 10px;border-radius:999px;flex-shrink:0}
+.action-title{font-size:15px;font-weight:700;color:var(--navy-2)}
+.action-body{padding:20px 20px 18px}
+.action-what{font-size:13px;color:var(--gray-1);line-height:1.7;margin-bottom:16px}
+.action-spec-row{display:flex;gap:24px;flex-wrap:wrap;margin-bottom:18px;padding:12px 16px;background:var(--gray-5);border-radius:8px}
+.spec-item{font-size:13px;color:var(--ink);font-weight:500}
+.spec-label{font-size:10.5px;font-weight:600;text-transform:uppercase;letter-spacing:.07em;color:var(--gray-1);display:block;margin-bottom:2px}
+.action-steps{display:flex;flex-direction:column;gap:8px;margin-bottom:12px}
+.step{display:flex;align-items:flex-start;gap:10px;font-size:13px;color:var(--gray-1);line-height:1.55}
+.step-num{width:22px;height:22px;border-radius:50%;background:var(--navy-3);color:#fff;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+.code-block{font-family:'SFMono-Regular',Consolas,'Liberation Mono',Menlo,monospace;font-size:12px;background:var(--gray-5);border:1px solid var(--gray-4);border-radius:6px;padding:10px 14px;color:var(--ink);word-break:break-all;line-height:1.6}
+.action-subsection{margin-top:20px}
+.action-subsection+.action-subsection{border-top:1px solid var(--gray-5);padding-top:20px}
+.action-subtitle{font-size:13px;font-weight:700;color:var(--navy-2);margin-bottom:10px}
+.form-needs{display:flex;flex-direction:column;gap:6px}
+.form-need-row{background:var(--gray-5);border-radius:8px;padding:10px 14px;display:grid;grid-template-columns:auto 1fr;gap:6px 14px;align-items:start}
+.fn-page{font-size:11.5px;font-weight:700;color:var(--navy-3);font-family:'SFMono-Regular',Consolas,monospace;white-space:nowrap;padding-top:1px}
+.fn-desc{font-size:12.5px;color:var(--gray-1);line-height:1.5}
+.fn-label{font-size:10.5px;font-weight:600;text-transform:uppercase;letter-spacing:.07em;color:var(--gray-2);margin-top:3px}
+
+/* ===== Responsive ===== */
+@media(max-width:700px){
+  .topbar{padding:24px 24px 28px}
+  .page-body{padding:32px 24px 56px}
+  .page-row{grid-template-columns:1fr;gap:12px}
+  .pr-actions{justify-content:flex-start}
+  .topbar-stats{gap:16px}
+}
+@media(max-width:480px){
+  .topbar h1{font-size:24px}
+  .topbar-inner{gap:12px}
+}
+</style>
+</head>
+<body>
+
+<!-- Top bar -->
+<div class="topbar">
+  <div class="topbar-inner">
+    <div class="topbar-logo">
+      <img src="assets/images/AP-Master-Logo-KO.png" alt="Advertiser Perceptions" />
+      <span class="topbar-badge">Internal Review</span>
+    </div>
+  </div>
+  <div style="max-width:1140px;margin:0 auto;padding-top:20px">
+    <h1>AP 2026 — Project Guide</h1>
+    <p>All pages, templates, and outstanding requirements for the AP 2026 website redesign. Use this as your reference during review sessions. This page is not part of the public site.</p>
+    <div class="topbar-stats">
+      <div class="ts-item"><strong>9</strong>Main Pages</div>
+      <div class="ts-item"><strong>30</strong>Team Profiles</div>
+      <div class="ts-item"><strong>2</strong>Blog Templates</div>
+      <div class="ts-item"><strong>41</strong>Total Files</div>
+    </div>
+  </div>
+</div>
+
+<!-- Page body -->
+<div class="page-body">
+
+  <!-- Legend -->
+  <div class="legend">
+    <span class="legend-label">Key</span>
+    <span class="legend-item"><span class="legend-dot" style="background:#00AA49"></span>Page content ready</span>
+    <span class="legend-item"><span class="legend-dot" style="background:var(--accent-orange)"></span>Template / placeholder content</span>
+    <span class="legend-item"><span class="legend-dot" style="background:var(--gray-4)"></span>Stub / needs content</span>
+    <span class="legend-item"><span class="needs-img" style="pointer-events:none">Images needed</span> Sections awaiting real images</span>
+    <span class="legend-item"><span class="needs-form" style="pointer-events:none">Form code pending</span> HubSpot GUID not yet wired</span>
+  </div>
+
+  <!-- ===== MAIN PAGES ===== -->
+  <div class="section-group">
+    <div class="group-header">
+      <div class="group-icon navy">⊞</div>
+      <div>
+        <div class="group-title">Main Pages</div>
+      </div>
+      <span class="group-count">9 pages</span>
+    </div>
+    <div class="page-list">
+
+      <a class="page-row" href="index.html" target="_blank" rel="noopener">
+        <div class="pr-left">
+          <span class="pr-indicator live"></span>
+          <div class="pr-text">
+            <div class="pr-title">Home</div>
+            <div class="pr-desc">Hero, What We Deliver cards, stats, testimonials, client logos, mega CTA</div>
+            <div class="pr-needs">
+              <span class="needs-img">Client logos (6)</span>
+              <span class="needs-img">Blog/Insights card images (3)</span>
+              <span class="needs-img">AP3 podcast card image</span>
+              <span class="needs-img">Hub video freeze frame (hero promo card)</span>
+            </div>
+            <div class="pr-path">index.html</div>
+          </div>
+        </div>
+        <div class="pr-actions"><span class="view-btn primary">Open ↗</span></div>
+      </a>
+
+      <a class="page-row" href="results.html" target="_blank" rel="noopener">
+        <div class="pr-left">
+          <span class="pr-indicator live"></span>
+          <div class="pr-text">
+            <div class="pr-title">What We Do</div>
+            <div class="pr-desc">Research outcomes, case study callouts, Customer Voice testimonials, stat band</div>
+            <div class="pr-needs">
+              <span class="needs-img">Case study card images (4: Pinterest, Mediaocean, Westwood One, Meredith)</span>
+            </div>
+            <div class="pr-path">results.html</div>
+          </div>
+        </div>
+        <div class="pr-actions"><span class="view-btn primary">Open ↗</span></div>
+      </a>
+
+      <a class="page-row" href="solutions.html" target="_blank" rel="noopener">
+        <div class="pr-left">
+          <span class="pr-indicator live"></span>
+          <div class="pr-text">
+            <div class="pr-title">Solutions</div>
+            <div class="pr-desc">Syndicated research, custom studies, solutions grid, "In Their Words" testimonials, mega CTA</div>
+            <div class="pr-path">solutions.html</div>
+          </div>
+        </div>
+        <div class="pr-actions"><span class="view-btn primary">Open ↗</span></div>
+      </a>
+
+      <a class="page-row" href="insights.html" target="_blank" rel="noopener">
+        <div class="pr-left">
+          <span class="pr-indicator live"></span>
+          <div class="pr-text">
+            <div class="pr-title">Insights</div>
+            <div class="pr-desc">Blog index with featured posts, 3-col archive, AP3 podcast series, newsletter signup</div>
+            <div class="pr-needs">
+              <span class="needs-img">Post card images (6)</span>
+              <span class="needs-img">AP3 podcast card images (4)</span>
+              <span class="needs-img">Featured post image</span>
+              <span class="needs-form">Form code pending — Newsletter Signup</span>
+            </div>
+            <div class="pr-path">insights.html</div>
+          </div>
+        </div>
+        <div class="pr-actions"><span class="view-btn primary">Open ↗</span></div>
+      </a>
+
+      <a class="page-row" href="ad-insights-hub.html" target="_blank" rel="noopener">
+        <div class="pr-left">
+          <span class="pr-indicator live"></span>
+          <div class="pr-text">
+            <div class="pr-title">Ad Insights Hub</div>
+            <div class="pr-desc">Membership platform overview, dashboard preview, feature cards, member testimonials, pricing/join CTA</div>
+            <div class="pr-needs">
+              <span class="needs-img">Forecast dashboard screenshot or demo GIF</span>
+              <span class="needs-form">Form code pending — Hub Membership Inquiry</span>
+            </div>
+            <div class="pr-path">ad-insights-hub.html</div>
+          </div>
+        </div>
+        <div class="pr-actions"><span class="view-btn primary">Open ↗</span></div>
+      </a>
+
+      <a class="page-row" href="about.html" target="_blank" rel="noopener">
+        <div class="pr-left">
+          <span class="pr-indicator live"></span>
+          <div class="pr-text">
+            <div class="pr-title">About Us</div>
+            <div class="pr-desc">Mission, history, methodology, leadership team intro, stats, values</div>
+            <div class="pr-needs">
+              <span class="needs-img">Our History visual (timeline or archival photo grid)</span>
+            </div>
+            <div class="pr-path">about.html</div>
+          </div>
+        </div>
+        <div class="pr-actions"><span class="view-btn primary">Open ↗</span></div>
+      </a>
+
+      <a class="page-row" href="adpros.html" target="_blank" rel="noopener">
+        <div class="pr-left">
+          <span class="pr-indicator live"></span>
+          <div class="pr-text">
+            <div class="pr-title">AP Ad Pros</div>
+            <div class="pr-desc">Respondent community overview, benefits, how to join, Member Voices testimonials</div>
+            <div class="pr-path">adpros.html</div>
+          </div>
+        </div>
+        <div class="pr-actions"><span class="view-btn primary">Open ↗</span></div>
+      </a>
+
+      <a class="page-row" href="careers.html" target="_blank" rel="noopener">
+        <div class="pr-left">
+          <span class="pr-indicator live"></span>
+          <div class="pr-text">
+            <div class="pr-title">Careers</div>
+            <div class="pr-desc">Culture, open roles, benefits, team photos, application CTA</div>
+            <div class="pr-needs">
+              <span class="needs-img">Internship section photo</span>
+            </div>
+            <div class="pr-path">careers.html</div>
+          </div>
+        </div>
+        <div class="pr-actions"><span class="view-btn primary">Open ↗</span></div>
+      </a>
+
+      <a class="page-row" href="connect.html" target="_blank" rel="noopener">
+        <div class="pr-left">
+          <span class="pr-indicator live"></span>
+          <div class="pr-text">
+            <div class="pr-title">Connect / Contact</div>
+            <div class="pr-desc">Contact form, office address, newsletter signup, LinkedIn link</div>
+            <div class="pr-needs">
+              <span class="needs-form">Form code pending — Contact / Demo Request</span>
+            </div>
+            <div class="pr-path">connect.html</div>
+          </div>
+        </div>
+        <div class="pr-actions"><span class="view-btn primary">Open ↗</span></div>
+      </a>
+
+    </div>
+  </div>
+
+  <hr class="section-divider" />
+
+  <!-- ===== TEAM PROFILES ===== -->
+  <div class="section-group">
+    <div class="group-header">
+      <div class="group-icon teal">◉</div>
+      <div>
+        <div class="group-title">Team Profiles</div>
+      </div>
+      <span class="group-count">30 pages</span>
+    </div>
+    <div class="page-list">
+
+      <a class="page-row" href="team/randy-cohen.html" target="_blank" rel="noopener">
+        <div class="pr-left">
+          <span class="pr-indicator live"></span>
+          <div class="pr-text">
+            <div class="pr-title">Randy Cohen <span style="font-weight:400;color:var(--gray-1)">— CEO &amp; Co-Founder</span></div>
+            <div class="pr-path">team/randy-cohen.html</div>
+          </div>
+        </div>
+        <div class="pr-actions"><span class="view-btn outline">Open ↗</span></div>
+      </a>
+
+      <a class="page-row" href="team/katie-jurina.html" target="_blank" rel="noopener">
+        <div class="pr-left">
+          <span class="pr-indicator live"></span>
+          <div class="pr-text">
+            <div class="pr-title">Katie Jurina <span style="font-weight:400;color:var(--gray-1)">— Chief Operating Officer</span></div>
+            <div class="pr-path">team/katie-jurina.html</div>
+          </div>
+        </div>
+        <div class="pr-actions"><span class="view-btn outline">Open ↗</span></div>
+      </a>
+
+      <a class="page-row" href="team/mark-jones.html" target="_blank" rel="noopener">
+        <div class="pr-left">
+          <span class="pr-indicator live"></span>
+          <div class="pr-text">
+            <div class="pr-title">Mark Jones <span style="font-weight:400;color:var(--gray-1)">— Chief Financial Officer</span></div>
+            <div class="pr-path">team/mark-jones.html</div>
+          </div>
+        </div>
+        <div class="pr-actions"><span class="view-btn outline">Open ↗</span></div>
+      </a>
+
+      <a class="page-row" href="team/stephan-desrochers.html" target="_blank" rel="noopener">
+        <div class="pr-left">
+          <span class="pr-indicator live"></span>
+          <div class="pr-text">
+            <div class="pr-title">Stephan Desrochers <span style="font-weight:400;color:var(--gray-1)">— Director of Accounting/Controller</span></div>
+            <div class="pr-path">team/stephan-desrochers.html</div>
+          </div>
+        </div>
+        <div class="pr-actions"><span class="view-btn outline">Open ↗</span></div>
+      </a>
+
+      <a class="page-row" href="team/jenna-rakos.html" target="_blank" rel="noopener">
+        <div class="pr-left">
+          <span class="pr-indicator live"></span>
+          <div class="pr-text">
+            <div class="pr-title">Jenna Rakos <span style="font-weight:400;color:var(--gray-1)">— Marketing Director</span></div>
+            <div class="pr-path">team/jenna-rakos.html</div>
+          </div>
+        </div>
+        <div class="pr-actions"><span class="view-btn outline">Open ↗</span></div>
+      </a>
+
+      <a class="page-row" href="team/nicole-perrin.html" target="_blank" rel="noopener">
+        <div class="pr-left">
+          <span class="pr-indicator live"></span>
+          <div class="pr-text">
+            <div class="pr-title">Nicole Perrin <span style="font-weight:400;color:var(--gray-1)">— EVP, Business Intelligence</span></div>
+            <div class="pr-path">team/nicole-perrin.html</div>
+          </div>
+        </div>
+        <div class="pr-actions"><span class="view-btn outline">Open ↗</span></div>
+      </a>
+
+      <a class="page-row" href="team/lauren-fisher.html" target="_blank" rel="noopener">
+        <div class="pr-left">
+          <span class="pr-indicator live"></span>
+          <div class="pr-text">
+            <div class="pr-title">Lauren Fisher <span style="font-weight:400;color:var(--gray-1)">— GM, Business Intelligence</span></div>
+            <div class="pr-path">team/lauren-fisher.html</div>
+          </div>
+        </div>
+        <div class="pr-actions"><span class="view-btn outline">Open ↗</span></div>
+      </a>
+
+      <a class="page-row" href="team/tricia-hoff.html" target="_blank" rel="noopener">
+        <div class="pr-left">
+          <span class="pr-indicator live"></span>
+          <div class="pr-text">
+            <div class="pr-title">Tricia Hoff <span style="font-weight:400;color:var(--gray-1)">— EVP, Business Intelligence</span></div>
+            <div class="pr-path">team/tricia-hoff.html</div>
+          </div>
+        </div>
+        <div class="pr-actions"><span class="view-btn outline">Open ↗</span></div>
+      </a>
+
+      <a class="page-row" href="team/eric-haggstrom.html" target="_blank" rel="noopener">
+        <div class="pr-left">
+          <span class="pr-indicator live"></span>
+          <div class="pr-text">
+            <div class="pr-title">Eric Haggstrom <span style="font-weight:400;color:var(--gray-1)">— SVP, Business Intelligence</span></div>
+            <div class="pr-path">team/eric-haggstrom.html</div>
+          </div>
+        </div>
+        <div class="pr-actions"><span class="view-btn outline">Open ↗</span></div>
+      </a>
+
+      <a class="page-row" href="team/john-bishop.html" target="_blank" rel="noopener">
+        <div class="pr-left">
+          <span class="pr-indicator live"></span>
+          <div class="pr-text">
+            <div class="pr-title">John Bishop <span style="font-weight:400;color:var(--gray-1)">— SVP, Business Intelligence</span></div>
+            <div class="pr-path">team/john-bishop.html</div>
+          </div>
+        </div>
+        <div class="pr-actions"><span class="view-btn outline">Open ↗</span></div>
+      </a>
+
+      <a class="page-row" href="team/erin-firneno.html" target="_blank" rel="noopener">
+        <div class="pr-left">
+          <span class="pr-indicator live"></span>
+          <div class="pr-text">
+            <div class="pr-title">Erin Firneno <span style="font-weight:400;color:var(--gray-1)">— EVP, Business Intelligence</span></div>
+            <div class="pr-path">team/erin-firneno.html</div>
+          </div>
+        </div>
+        <div class="pr-actions"><span class="view-btn outline">Open ↗</span></div>
+      </a>
+
+      <a class="page-row" href="team/brenna-smith.html" target="_blank" rel="noopener">
+        <div class="pr-left">
+          <span class="pr-indicator live"></span>
+          <div class="pr-text">
+            <div class="pr-title">Brenna Smith <span style="font-weight:400;color:var(--gray-1)">— Director, Business Intelligence</span></div>
+            <div class="pr-path">team/brenna-smith.html</div>
+          </div>
+        </div>
+        <div class="pr-actions"><span class="view-btn outline">Open ↗</span></div>
+      </a>
+
+      <a class="page-row" href="team/doug-houghton.html" target="_blank" rel="noopener">
+        <div class="pr-left">
+          <span class="pr-indicator live"></span>
+          <div class="pr-text">
+            <div class="pr-title">Doug Houghton <span style="font-weight:400;color:var(--gray-1)">— SVP, Research</span></div>
+            <div class="pr-path">team/doug-houghton.html</div>
+          </div>
+        </div>
+        <div class="pr-actions"><span class="view-btn outline">Open ↗</span></div>
+      </a>
+
+      <a class="page-row" href="team/beth-benedict.html" target="_blank" rel="noopener">
+        <div class="pr-left">
+          <span class="pr-indicator live"></span>
+          <div class="pr-text">
+            <div class="pr-title">Beth Benedict <span style="font-weight:400;color:var(--gray-1)">— Lead Project Manager, Research Operations</span></div>
+            <div class="pr-path">team/beth-benedict.html</div>
+          </div>
+        </div>
+        <div class="pr-actions"><span class="view-btn outline">Open ↗</span></div>
+      </a>
+
+      <a class="page-row" href="team/caitlin-hildenbrand.html" target="_blank" rel="noopener">
+        <div class="pr-left">
+          <span class="pr-indicator live"></span>
+          <div class="pr-text">
+            <div class="pr-title">Caitlin Hildenbrand <span style="font-weight:400;color:var(--gray-1)">— Research Director</span></div>
+            <div class="pr-path">team/caitlin-hildenbrand.html</div>
+          </div>
+        </div>
+        <div class="pr-actions"><span class="view-btn outline">Open ↗</span></div>
+      </a>
+
+      <a class="page-row" href="team/claire-jones.html" target="_blank" rel="noopener">
+        <div class="pr-left">
+          <span class="pr-indicator live"></span>
+          <div class="pr-text">
+            <div class="pr-title">Claire Jones <span style="font-weight:400;color:var(--gray-1)">— Senior Director, Research Operations</span></div>
+            <div class="pr-path">team/claire-jones.html</div>
+          </div>
+        </div>
+        <div class="pr-actions"><span class="view-btn outline">Open ↗</span></div>
+      </a>
+
+      <a class="page-row" href="team/julie-gagnon.html" target="_blank" rel="noopener">
+        <div class="pr-left">
+          <span class="pr-indicator live"></span>
+          <div class="pr-text">
+            <div class="pr-title">Julie Gagnon <span style="font-weight:400;color:var(--gray-1)">— Manager, Business Intelligence Operations</span></div>
+            <div class="pr-path">team/julie-gagnon.html</div>
+          </div>
+        </div>
+        <div class="pr-actions"><span class="view-btn outline">Open ↗</span></div>
+      </a>
+
+      <a class="page-row" href="team/kirsty-moir.html" target="_blank" rel="noopener">
+        <div class="pr-left">
+          <span class="pr-indicator live"></span>
+          <div class="pr-text">
+            <div class="pr-title">Kirsty Moir <span style="font-weight:400;color:var(--gray-1)">— Research Project Manager</span></div>
+            <div class="pr-path">team/kirsty-moir.html</div>
+          </div>
+        </div>
+        <div class="pr-actions"><span class="view-btn outline">Open ↗</span></div>
+      </a>
+
+      <a class="page-row" href="team/marisa-rosen.html" target="_blank" rel="noopener">
+        <div class="pr-left">
+          <span class="pr-indicator live"></span>
+          <div class="pr-text">
+            <div class="pr-title">Marisa Rosen <span style="font-weight:400;color:var(--gray-1)">— Senior Research Director</span></div>
+            <div class="pr-path">team/marisa-rosen.html</div>
+          </div>
+        </div>
+        <div class="pr-actions"><span class="view-btn outline">Open ↗</span></div>
+      </a>
+
+      <a class="page-row" href="team/michele-laprade.html" target="_blank" rel="noopener">
+        <div class="pr-left">
+          <span class="pr-indicator live"></span>
+          <div class="pr-text">
+            <div class="pr-title">Michele LaPrade <span style="font-weight:400;color:var(--gray-1)">— Director, Research Operations</span></div>
+            <div class="pr-path">team/michele-laprade.html</div>
+          </div>
+        </div>
+        <div class="pr-actions"><span class="view-btn outline">Open ↗</span></div>
+      </a>
+
+      <a class="page-row" href="team/pami-kellert.html" target="_blank" rel="noopener">
+        <div class="pr-left">
+          <span class="pr-indicator live"></span>
+          <div class="pr-text">
+            <div class="pr-title">Pami Kellert <span style="font-weight:400;color:var(--gray-1)">— Senior Director, Operations</span></div>
+            <div class="pr-path">team/pami-kellert.html</div>
+          </div>
+        </div>
+        <div class="pr-actions"><span class="view-btn outline">Open ↗</span></div>
+      </a>
+
+      <a class="page-row" href="team/sherrie-borham.html" target="_blank" rel="noopener">
+        <div class="pr-left">
+          <span class="pr-indicator live"></span>
+          <div class="pr-text">
+            <div class="pr-title">Sherrie Borham <span style="font-weight:400;color:var(--gray-1)">— Senior Manager, Operations</span></div>
+            <div class="pr-path">team/sherrie-borham.html</div>
+          </div>
+        </div>
+        <div class="pr-actions"><span class="view-btn outline">Open ↗</span></div>
+      </a>
+
+      <a class="page-row" href="team/yijie-zhu.html" target="_blank" rel="noopener">
+        <div class="pr-left">
+          <span class="pr-indicator live"></span>
+          <div class="pr-text">
+            <div class="pr-title">Yijie Zhu <span style="font-weight:400;color:var(--gray-1)">— Senior Manager, Research Operations</span></div>
+            <div class="pr-path">team/yijie-zhu.html</div>
+          </div>
+        </div>
+        <div class="pr-actions"><span class="view-btn outline">Open ↗</span></div>
+      </a>
+
+      <a class="page-row" href="team/andrew-sippel.html" target="_blank" rel="noopener">
+        <div class="pr-left">
+          <span class="pr-indicator live"></span>
+          <div class="pr-text">
+            <div class="pr-title">Andrew Sippel <span style="font-weight:400;color:var(--gray-1)">— Executive Vice President</span></div>
+            <div class="pr-path">team/andrew-sippel.html</div>
+          </div>
+        </div>
+        <div class="pr-actions"><span class="view-btn outline">Open ↗</span></div>
+      </a>
+
+      <a class="page-row" href="team/diane-malloy.html" target="_blank" rel="noopener">
+        <div class="pr-left">
+          <span class="pr-indicator live"></span>
+          <div class="pr-text">
+            <div class="pr-title">Diane Malloy <span style="font-weight:400;color:var(--gray-1)">— SVP, Sales</span></div>
+            <div class="pr-path">team/diane-malloy.html</div>
+          </div>
+        </div>
+        <div class="pr-actions"><span class="view-btn outline">Open ↗</span></div>
+      </a>
+
+      <a class="page-row" href="team/jacqueline-baranov.html" target="_blank" rel="noopener">
+        <div class="pr-left">
+          <span class="pr-indicator live"></span>
+          <div class="pr-text">
+            <div class="pr-title">Jacqueline Baranov <span style="font-weight:400;color:var(--gray-1)">— VP, Consulting</span></div>
+            <div class="pr-path">team/jacqueline-baranov.html</div>
+          </div>
+        </div>
+        <div class="pr-actions"><span class="view-btn outline">Open ↗</span></div>
+      </a>
+
+      <a class="page-row" href="team/cara-walkin.html" target="_blank" rel="noopener">
+        <div class="pr-left">
+          <span class="pr-indicator live"></span>
+          <div class="pr-text">
+            <div class="pr-title">Cara Walkin <span style="font-weight:400;color:var(--gray-1)">— Senior Account Manager</span></div>
+            <div class="pr-path">team/cara-walkin.html</div>
+          </div>
+        </div>
+        <div class="pr-actions"><span class="view-btn outline">Open ↗</span></div>
+      </a>
+
+      <a class="page-row" href="team/eliza-brooks.html" target="_blank" rel="noopener">
+        <div class="pr-left">
+          <span class="pr-indicator live"></span>
+          <div class="pr-text">
+            <div class="pr-title">Eliza Brooks <span style="font-weight:400;color:var(--gray-1)">— Account Manager</span></div>
+            <div class="pr-path">team/eliza-brooks.html</div>
+          </div>
+        </div>
+        <div class="pr-actions"><span class="view-btn outline">Open ↗</span></div>
+      </a>
+
+      <a class="page-row" href="team/stuart-schneiderman.html" target="_blank" rel="noopener">
+        <div class="pr-left">
+          <span class="pr-indicator live"></span>
+          <div class="pr-text">
+            <div class="pr-title">Stuart Schneiderman <span style="font-weight:400;color:var(--gray-1)">— GM, Ad Insights Hub</span></div>
+            <div class="pr-path">team/stuart-schneiderman.html</div>
+          </div>
+        </div>
+        <div class="pr-actions"><span class="view-btn outline">Open ↗</span></div>
+      </a>
+
+      <a class="page-row" href="team/daniel-ogrady.html" target="_blank" rel="noopener">
+        <div class="pr-left">
+          <span class="pr-indicator live"></span>
+          <div class="pr-text">
+            <div class="pr-title">Daniel O'Grady <span style="font-weight:400;color:var(--gray-1)">— Client Services Manager, Ad Insights Hub</span></div>
+            <div class="pr-path">team/daniel-ogrady.html</div>
+          </div>
+        </div>
+        <div class="pr-actions"><span class="view-btn outline">Open ↗</span></div>
+      </a>
+
+        </div>
+  </div>
+
+  <hr class="section-divider" />
+
+  <!-- ===== BLOG TEMPLATES ===== -->
+  <div class="section-group">
+    <div class="group-header">
+      <div class="group-icon orange">✦</div>
+      <div>
+        <div class="group-title">Blog Templates</div>
+      </div>
+      <span class="group-count">2 templates</span>
+    </div>
+
+    <div style="background:#FFF8EE;border:1px solid #F7C87A;border-radius:10px;padding:14px 18px;margin-bottom:18px;font-size:13px;color:#7A4800;line-height:1.6">
+      <strong>Template pages</strong> — These are HTML design mockups with placeholder content. They map to WordPress PHP template files: <code style="background:rgba(0,0,0,.06);padding:2px 6px;border-radius:4px;font-size:12px">category.php</code> and <code style="background:rgba(0,0,0,.06);padding:2px 6px;border-radius:4px;font-size:12px">single.php</code>. WP template tag replacements are marked with <code style="background:rgba(0,0,0,.06);padding:2px 6px;border-radius:4px;font-size:12px">&lt;!-- wp: --&gt;</code> comments throughout each file.
+    </div>
+
+    <div class="page-list">
+
+      <a class="page-row" href="blog/category.html" target="_blank" rel="noopener">
+        <div class="pr-left">
+          <span class="pr-indicator template"></span>
+          <div class="pr-text">
+            <div class="pr-title">Blog — Category / Archive</div>
+            <div class="pr-desc">Topic category hero, filter chips, editorial post-list layout, pagination, full right sidebar with primary CTA + newsletter + search + recent posts + categories + tags</div>
+            <div class="pr-path">blog/category.html → category.php</div>
+          </div>
+        </div>
+        <div class="pr-actions"><span class="view-btn teal">Open ↗</span></div>
+      </a>
+
+      <a class="page-row" href="blog/single.html" target="_blank" rel="noopener">
+        <div class="pr-left">
+          <span class="pr-indicator template"></span>
+          <div class="pr-text">
+            <div class="pr-title">Blog — Single Post</div>
+            <div class="pr-desc">Post hero with share buttons, reading progress bar, featured image, article body (blockquotes, data callouts, headings), tags, author bio, prev/next navigation, related posts grid, full right sidebar</div>
+            <div class="pr-path">blog/single.html → single.php</div>
+          </div>
+        </div>
+        <div class="pr-actions"><span class="view-btn teal">Open ↗</span></div>
+      </a>
+
+    </div>
+  </div>
+
+  <hr class="section-divider" />
+
+  <!-- ===== SHARED ASSETS ===== -->
+  <div class="section-group">
+    <div class="group-header">
+      <div class="group-icon" style="background:var(--gray-4);color:var(--gray-1)">⚙</div>
+      <div>
+        <div class="group-title">Shared JavaScript</div>
+      </div>
+    </div>
+    <div class="page-list">
+      <div class="page-row" style="cursor:default">
+        <div class="pr-left">
+          <span class="pr-indicator live"></span>
+          <div class="pr-text">
+            <div class="pr-title">Scroll Animations</div>
+            <div class="pr-desc">Fade-in on scroll — attached to all pages via <code style="font-size:11px;background:var(--gray-5);padding:1px 6px;border-radius:3px">defer</code> script tag</div>
+            <div class="pr-path">assets/js/animate.js</div>
+          </div>
+        </div>
+        <div class="pr-actions" style="opacity:.4;font-size:12px;color:var(--gray-2)">JS file</div>
+      </div>
+      <div class="page-row" style="cursor:default;margin-top:6px">
+        <div class="pr-left">
+          <span class="pr-indicator live"></span>
+          <div class="pr-text">
+            <div class="pr-title">CTA Color Preview Toggle</div>
+            <div class="pr-desc">Floating widget — switches all CTA buttons/links between Teal (#0B8395) and Magenta (#DA0058). State persists via sessionStorage across page navigation. Attached to all 24 pages.</div>
+            <div class="pr-path">assets/js/cta-toggle.js</div>
+          </div>
+        </div>
+        <div class="pr-actions" style="opacity:.4;font-size:12px;color:var(--gray-2)">JS file</div>
+      </div>
+    </div>
+  </div>
+
+
+  <hr class="section-divider" />
+
+  <!-- ===== CLIENT ACTION REQUIRED ===== -->
+  <div class="section-group">
+    <div class="group-header">
+      <div class="group-icon magenta">↑</div>
+      <div>
+        <div class="group-title">Client Action Required</div>
+        <div style="font-size:12px;color:var(--gray-1);margin-top:2px">Items needed from AP before the site can go live</div>
+      </div>
+      <span class="group-count">3 items</span>
+    </div>
+
+    <!-- OG Image -->
+    <div class="action-card">
+      <div class="action-card-header">
+        <span class="action-tag">Asset Needed</span>
+        <span class="action-title">Open Graph (OG) Share Image</span>
+      </div>
+      <div class="action-body">
+        <p class="action-what">When any page on this site is shared on LinkedIn, Slack, iMessage, or in an email, platforms display a preview image alongside the link. That image is the OG image. All 22 pages are already coded to use it — the image file just needs to be created and uploaded to the exact path below.</p>
+        <div class="action-spec-row">
+          <div class="spec-item"><span class="spec-label">Dimensions</span>1200 × 630 px</div>
+          <div class="spec-item"><span class="spec-label">Format</span>JPG or PNG</div>
+          <div class="spec-item"><span class="spec-label">File size</span>Under 1 MB</div>
+          <div class="spec-item"><span class="spec-label">Pages using it</span>All 22 pages</div>
+        </div>
+        <div class="action-steps">
+          <div class="step"><span class="step-num">1</span>Design a branded graphic — AP logo on navy background, company name, optional tagline. Canvas size: 1200 × 630 px.</div>
+          <div class="step"><span class="step-num">2</span>Export as PNG or JPG, under 1 MB.</div>
+          <div class="step"><span class="step-num">3</span>Upload to WordPress Media Library and save with this exact filename (already wired into every page):</div>
+        </div>
+        <div class="code-block">https://www.advertiserperceptions.com/wp-content/uploads/2026/06/ap-og-image.png</div>
+        <p style="font-size:12px;color:var(--gray-2);margin-top:10px;line-height:1.6">If the uploaded path differs, the URL in each page's <code style="font-size:11px;background:var(--gray-5);padding:1px 5px;border-radius:3px">&lt;head&gt;</code> can be batch-updated to match.</p>
+      </div>
+    </div>
+
+    <!-- HubSpot Forms -->
+    <div class="action-card">
+      <div class="action-card-header">
+        <span class="action-tag">Integration</span>
+        <span class="action-title">HubSpot Form Embed Codes</span>
+      </div>
+      <div class="action-body">
+        <p class="action-what">The contact forms on this site will be replaced with HubSpot-hosted forms so submissions flow directly into your CRM. The account-level <strong>Portal ID is confirmed</strong>. All that remains is a <strong>Form GUID</strong> for each of the 3 forms below.</p>
+
+        <div class="action-subsection">
+          <div class="action-subtitle">Portal ID <span style="font-family:'SFMono-Regular',Consolas,monospace;font-weight:400;font-size:13px;background:var(--navy-7);color:var(--navy-2);padding:2px 10px;border-radius:4px;margin-left:6px">50601802</span> <span style="font-size:12px;font-weight:400;color:#00AA49;margin-left:6px">✓ Confirmed</span></div>
+          <p style="font-size:13px;color:var(--gray-1);line-height:1.6;margin-top:4px">This is shared across all forms — no further action needed for this value.</p>
+        </div>
+
+        <div class="action-subsection">
+          <div class="action-subtitle">Instructions for your HubSpot admin</div>
+          <p style="font-size:13px;color:var(--gray-1);line-height:1.65;margin-bottom:14px">Three forms need to be created in HubSpot (or located if they already exist). For each one, the admin should send the <strong>Form GUID</strong> — found in the URL when editing the form:</p>
+          <div class="code-block" style="margin-bottom:14px">app.hubspot.com/forms/<strong style="color:var(--teal-2)">50601802</strong>/editor/<strong style="color:var(--accent-magenta)">GUID-IS-THIS-PART</strong>/edit/form</div>
+          <div class="action-steps">
+            <div class="step"><span class="step-num">1</span>Log into HubSpot and go to <strong>Marketing → Forms</strong>.</div>
+            <div class="step"><span class="step-num">2</span>Create each form below (or locate it if it exists). Use any template — fields and styling are set on the website side.</div>
+            <div class="step"><span class="step-num">3</span>Open each form, copy the GUID from the address bar, and share all three GUIDs with your web developer.</div>
+          </div>
+        </div>
+
+        <div class="action-subsection">
+          <div class="action-subtitle">Forms needed — 3 total</div>
+          <div class="form-needs">
+            <div class="form-need-row">
+              <span class="fn-page">connect.html</span>
+              <div>
+                <div class="fn-desc">Contact / Demo Request — fields: name, company, email, message.</div>
+                <div class="fn-label">Form GUID needed — share with developer</div>
+              </div>
+            </div>
+            <div class="form-need-row">
+              <span class="fn-page">ad-insights-hub.html</span>
+              <div>
+                <div class="fn-desc">Hub Membership Inquiry — request access or learn more about Ad Insights Hub.</div>
+                <div class="fn-label">Form GUID needed — share with developer</div>
+              </div>
+            </div>
+            <div class="form-need-row">
+              <span class="fn-page">insights.html</span>
+              <div>
+                <div class="fn-desc">Newsletter Signup — single email field, subscribe to AP research updates.</div>
+                <div class="fn-label">Form GUID needed — share with developer</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Incomplete Team Profiles -->
+    <div class="action-card">
+      <div class="action-card-header">
+        <span class="action-tag">Content Needed</span>
+        <span class="action-title">3 Team Profiles Still Incomplete</span>
+      </div>
+      <div class="action-body">
+        <p class="action-what">From the July 2026 team bio/headshot round, everyone is built out on the site except the 3 people below — each is missing one piece needed before their profile can go live.</p>
+        <div class="action-steps">
+          <div class="step"><span class="step-num">1</span><strong>Barbara Leung</strong> (Sales Team) — bio slide was left blank ("Title" / "Description" placeholders). Needs title + bio copy.</div>
+          <div class="step"><span class="step-num">2</span><strong>Janine Mitrano</strong> (Research Operations, Associate Director) — bio is written, but she's 1 of the 2 people missing from the new headshot frame folder. Needs a headshot.</div>
+          <div class="step"><span class="step-num">3</span><strong>Andrew Oates</strong> (Hub Team) — bio and headshot are ready, but his slide's title field was left as "Title." Needs an official job title.</div>
+        </div>
+        <p style="font-size:12px;color:var(--gray-2);margin-top:10px;line-height:1.6">Once these are filled in, the same template used for the other 30 team pages can be applied in minutes.</p>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+<!-- Footer -->
+<div class="page-footer">
+  AP 2026 Website Redesign · Project Guide · <a href="index.html">Go to Home →</a>
+</div>
+
+</body>
+</html>

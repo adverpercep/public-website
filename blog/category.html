@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<!-- wp: <title><?php single_cat_title(); ?> — AP Insights | Advertiser Perceptions</title> -->
+<title>CTV &amp; Streaming — AP Insights | Advertiser Perceptions</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+<style>
+:root{
+  color-scheme: light;
+  --navy-1:#080054; --navy-2:#101B5F; --navy-3:#212E80; --navy-4:#303EAD;
+  --navy-5:#576FD2; --navy-6:#92ACEE; --navy-7:#D6E1FF;
+  --teal-1:#13536D; --teal-2:#10697F; --teal-3:#0B8395; --teal-4:#4DA0AD; --teal-5:#84B8BF;
+  --purple-1:#553F6A; --purple-2:#806399; --purple-3:#9778B2; --purple-4:#BFA5D4; --purple-5:#E1D2ED;
+  --accent-magenta:#DA0058; --accent-orange:#F4A046; --accent-yellow:#EDDA1A; --accent-pink:#D97DA0;
+  --positive:#00AA49; --negative:#C00000;
+  --gray-1:#676E7B; --gray-2:#8C97A2; --gray-3:#B2B8C0; --gray-4:#D0D5DD; --gray-5:#E4EBF1;
+  --ink:#101B5F;
+  --gradient-navy: radial-gradient(120% 120% at 20% 10%, #1C2971 0%, #1C2971 23%, #18235F 69%, #0A1040 100%);
+  --font: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{font-family:var(--font);color:var(--ink);background:#fff;line-height:1.5;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+
+/* ===== Primary nav ===== */
+.primary-nav{background:#fff;border-bottom:1px solid var(--gray-5);position:sticky;top:0;z-index:100;box-shadow:0 1px 0 rgba(16,27,95,.04);position:relative}
+.primary-nav-inner{max-width:1280px;margin:0 auto;padding:14px 32px;display:flex;align-items:center;justify-content:space-between;gap:32px}
+.logo{display:flex;align-items:center;gap:12px;text-decoration:none}
+.logo img{height:44px;width:auto;display:block}
+.nav-items{display:flex;gap:22px;align-items:center}
+.nav-items a{text-decoration:none;color:var(--navy-3);font-weight:500;font-size:13.5px;position:relative;padding:8px 0}
+.nav-items a.active{color:var(--teal-3);font-weight:600}
+.nav-items a.active::after{content:"";position:absolute;left:0;right:0;bottom:-16px;height:3px;background:var(--teal-3);border-radius:2px}
+.nav-items a:hover{color:var(--teal-3)}
+.nav-actions{display:flex;gap:12px;align-items:center}
+.search-icon{width:38px;height:38px;border-radius:50%;background:var(--gray-5);color:var(--navy-3);display:grid;place-items:center;cursor:pointer;border:none;font-size:18px}
+.hub-login-btn{background:var(--gray-5);color:var(--navy-3);text-decoration:none;padding:10px 18px;border-radius:999px;font-weight:600;font-size:13.5px}
+.hub-login-btn:hover{background:var(--gray-4);color:var(--navy-2)}
+.contact-cta{background:var(--teal-3);color:#fff;text-decoration:none;padding:10px 20px;border-radius:999px;font-weight:600;font-size:14px}
+.contact-cta:hover{background:var(--teal-2)}
+
+/* ===== Buttons ===== */
+.btn{display:inline-flex;align-items:center;gap:10px;padding:14px 28px;border-radius:999px;font-weight:600;font-size:15px;text-decoration:none;border:none;cursor:pointer;transition:transform .15s,box-shadow .15s;font-family:var(--font)}
+.btn:hover{transform:translateY(-1px)}
+.btn-primary{background:var(--teal-3);color:#fff}
+.btn-primary:hover{background:var(--teal-2)}
+.btn-ghost{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.5)}
+.btn-ghost:hover{background:rgba(255,255,255,.1)}
+.btn-magenta{background:var(--teal-3);color:#fff}
+.btn-magenta:hover{background:var(--teal-2)}
+.btn-outline{background:transparent;color:var(--navy-3);border:1.5px solid var(--navy-3)}
+.btn-outline:hover{background:var(--navy-7)}
+.btn-teal-outline{background:transparent;color:var(--teal-3);border:1.5px solid var(--teal-3)}
+.btn-teal-outline:hover{background:#D9EEF2}
+.btn-sm{padding:10px 20px;font-size:13.5px}
+
+/* ===== Hero ===== */
+.hero{position:relative;background:var(--gradient-navy);color:#fff;padding:64px 32px 72px;overflow:hidden}
+.hero-inner{max-width:1280px;margin:0 auto;position:relative;z-index:2}
+.hero-eyebrow{display:inline-block;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.25);padding:6px 16px;border-radius:999px;font-size:12px;letter-spacing:.15em;text-transform:uppercase;font-weight:500;margin-bottom:16px}
+.hero h1{font-size:46px;line-height:1.1;font-weight:700;letter-spacing:-.02em}
+.hero h1 em{font-style:normal;color:var(--accent-orange)}
+.hero-meta{font-size:14px;color:rgba(255,255,255,.65);margin-top:12px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.hero-meta a{color:rgba(255,255,255,.65);text-decoration:none}
+.hero-meta a:hover{color:#fff}
+.hex-field{position:absolute;inset:0;pointer-events:none;opacity:.55}
+.hex{position:absolute;clip-path:polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)}
+.hex-1{top:-40px;right:8%;width:140px;height:162px;background:var(--navy-5);opacity:.35}
+.hex-2{top:30%;right:22%;width:80px;height:92px;background:var(--teal-4);opacity:.25}
+.hex-3{bottom:-50px;right:-20px;width:200px;height:231px;background:var(--navy-4);opacity:.3}
+.hex-4{top:20%;right:4%;width:52px;height:60px;background:var(--accent-magenta);opacity:.5}
+
+/* ===== Breadcrumb ===== */
+.breadcrumb{font-size:12px;color:rgba(255,255,255,.6);display:flex;align-items:center;gap:8px;margin-bottom:20px}
+.breadcrumb a{color:rgba(255,255,255,.6);text-decoration:none}
+.breadcrumb a:hover{color:#fff}
+.breadcrumb span{opacity:.5}
+
+/* ===== Sections / layout ===== */
+.sec-eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:12px;letter-spacing:.18em;text-transform:uppercase;font-weight:600;color:var(--teal-3);margin-bottom:16px}
+.sec-eyebrow::before{content:"";width:32px;height:4px;background:var(--teal-3);clip-path:polygon(6px 0%,100% 0%,calc(100% - 6px) 100%,0% 100%);flex-shrink:0}
+.bg-light{background:#F7F9FC}
+
+/* ===== Blog layout: main + sidebar ===== */
+.blog-wrap{max-width:1280px;margin:0 auto;padding:56px 32px 72px;display:grid;grid-template-columns:1fr 340px;gap:56px;align-items:start}
+
+/* ===== Filter row ===== */
+.filter-row{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:40px}
+.filter-label{font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:var(--gray-1);margin-right:4px;flex-shrink:0}
+.chip{flex-shrink:0;background:var(--gray-5);color:var(--navy-3);padding:8px 16px;border-radius:999px;font-size:13px;font-weight:500;text-decoration:none;border:1.5px solid transparent;cursor:pointer}
+.chip:hover{background:var(--navy-7);border-color:var(--navy-6)}
+.chip.active{background:var(--navy-3);color:#fff;border-color:var(--navy-3)}
+
+/* ===== Archive post list ===== */
+.post-list{display:flex;flex-direction:column;gap:0}
+.archive-post{display:grid;grid-template-columns:180px 1fr;gap:24px;padding:28px 0;border-bottom:1px solid var(--gray-5);text-decoration:none;color:inherit;transition:background .12s}
+.archive-post:first-child{border-top:1px solid var(--gray-5)}
+.archive-post:hover .ap-title{color:var(--teal-2)}
+.ap-thumb{border-radius:12px;overflow:hidden;background:var(--gray-5);border:1px solid var(--gray-4);height:120px;display:grid;place-items:center;flex-shrink:0}
+.ap-thumb img{width:100%;height:100%;object-fit:cover}
+.ap-thumb-ph{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--gray-3);font-weight:600;padding:12px;text-align:center}
+.ap-body{display:flex;flex-direction:column;gap:8px;justify-content:center}
+.ap-tag{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--teal-3)}
+.ap-title{font-size:19px;line-height:1.3;font-weight:700;color:var(--navy-3);letter-spacing:-.01em;transition:color .15s}
+.ap-excerpt{font-size:14px;line-height:1.6;color:var(--gray-1)}
+.ap-meta{font-size:12px;color:var(--gray-2);display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:4px}
+.ap-readmore{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:600;color:var(--teal-3);margin-top:4px}
+
+/* ===== Pagination ===== */
+.pagination{display:flex;align-items:center;gap:8px;margin-top:48px;flex-wrap:wrap}
+.page-btn{width:40px;height:40px;border-radius:8px;border:1.5px solid var(--gray-4);background:#fff;color:var(--navy-3);font-size:14px;font-weight:600;cursor:pointer;display:grid;place-items:center;text-decoration:none;font-family:var(--font);transition:border-color .12s,background .12s}
+.page-btn:hover{border-color:var(--navy-4);background:var(--navy-7)}
+.page-btn.active{background:var(--navy-3);border-color:var(--navy-3);color:#fff}
+.page-btn.wide{width:auto;padding:0 16px}
+
+/* ===== SIDEBAR ===== */
+.sidebar{display:flex;flex-direction:column;gap:28px;position:sticky;top:96px}
+
+/* Sidebar: Primary CTA */
+.sidebar-cta-primary{background:var(--gradient-navy);border-radius:20px;padding:32px 28px;color:#fff;position:relative;overflow:hidden;isolation:isolate}
+.scta-hex{position:absolute;clip-path:polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);z-index:0}
+.scta-hex-1{top:-30px;right:-30px;width:130px;height:150px;background:var(--teal-3);opacity:.35}
+.scta-hex-2{bottom:-20px;right:30px;width:70px;height:81px;background:var(--navy-5);opacity:.5}
+.scta-hex-3{top:40%;right:-10px;width:50px;height:58px;border:2px solid var(--teal-5);background:transparent;opacity:.4}
+.scta-eyebrow{position:relative;z-index:1;display:inline-block;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);color:rgba(255,255,255,.8);padding:5px 14px;border-radius:999px;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;margin-bottom:14px}
+.scta-heading{position:relative;z-index:1;font-size:22px;line-height:1.2;font-weight:700;letter-spacing:-.01em;margin-bottom:12px}
+.scta-body{position:relative;z-index:1;font-size:13.5px;line-height:1.6;color:rgba(255,255,255,.8);margin-bottom:20px}
+.scta-stat{position:relative;z-index:1;display:flex;align-items:center;gap:12px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:14px 16px;margin-bottom:22px}
+.scta-stat-num{font-size:30px;font-weight:800;letter-spacing:-.03em;color:var(--accent-orange);line-height:1;flex-shrink:0}
+.scta-stat-lbl{font-size:12px;color:rgba(255,255,255,.75);line-height:1.4}
+.sidebar-cta-primary .btn-primary{position:relative;z-index:1;width:100%;justify-content:center;font-size:14px;padding:13px 20px}
+
+/* Sidebar: Newsletter */
+.sidebar-newsletter{background:#fff;border:2px solid var(--teal-3);border-radius:20px;padding:28px;position:relative;overflow:hidden}
+.snl-accent{position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--teal-3),var(--teal-5))}
+.snl-eyebrow{display:inline-block;font-size:10.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--teal-3);margin-bottom:10px}
+.snl-heading{font-size:17px;font-weight:700;color:var(--navy-2);line-height:1.25;margin-bottom:8px}
+.snl-body{font-size:13px;line-height:1.55;color:var(--gray-1);margin-bottom:18px}
+.snl-form{display:flex;flex-direction:column;gap:10px}
+.snl-form input[type="email"]{padding:11px 16px;border-radius:999px;border:1.5px solid var(--gray-4);font-family:var(--font);font-size:13.5px;color:var(--ink);width:100%}
+.snl-form input[type="email"]:focus{outline:none;border-color:var(--teal-3);box-shadow:0 0 0 3px rgba(11,131,149,.15)}
+.snl-form button{padding:11px 20px;border-radius:999px;background:var(--teal-3);color:#fff;border:none;font-family:var(--font);font-size:13.5px;font-weight:700;cursor:pointer;transition:background .15s}
+.snl-form button:hover{background:var(--teal-2)}
+.snl-disclaimer{font-size:11px;color:var(--gray-2);margin-top:10px;line-height:1.45}
+
+/* Sidebar: Widget shell */
+.sidebar-widget{background:#fff;border:1px solid var(--gray-5);border-radius:16px;padding:24px}
+.sw-title{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.14em;color:var(--navy-3);margin-bottom:18px;display:flex;align-items:center;gap:8px}
+.sw-title::after{content:"";flex:1;height:1px;background:var(--gray-5)}
+
+/* Sidebar: Search */
+.sw-search{display:flex;gap:0}
+.sw-search input{flex:1;min-width:0;padding:10px 16px;border:1.5px solid var(--gray-4);border-right:none;border-radius:999px 0 0 999px;font-family:var(--font);font-size:13.5px;color:var(--ink)}
+.sw-search input:focus{outline:none;border-color:var(--teal-3)}
+.sw-search button{padding:10px 16px;background:var(--navy-3);color:#fff;border:none;border-radius:0 999px 999px 0;cursor:pointer;font-size:16px;display:grid;place-items:center}
+.sw-search button:hover{background:var(--navy-2)}
+
+/* Sidebar: Recent posts */
+.recent-posts{display:flex;flex-direction:column;gap:0}
+.rp-item{display:block;text-decoration:none;color:inherit;padding:10px 0;border-bottom:1px solid var(--gray-5)}
+.rp-item:first-child{padding-top:0}
+.rp-item:last-child{border-bottom:none;padding-bottom:0}
+.rp-item:hover .rp-title{color:var(--teal-2)}
+.rp-title{font-size:13px;line-height:1.35;font-weight:600;color:var(--navy-3);transition:color .15s}
+.rp-date{font-size:11px;color:var(--gray-2);margin-top:3px}
+
+/* Sidebar: Category list */
+.cat-list{list-style:none;display:flex;flex-direction:column;gap:4px}
+.cat-list li a{display:flex;justify-content:space-between;align-items:center;padding:8px 12px;border-radius:8px;text-decoration:none;color:var(--navy-3);font-size:13.5px;font-weight:500;transition:background .12s}
+.cat-list li a:hover{background:var(--gray-5);color:var(--teal-2)}
+.cat-list li a.current{background:var(--navy-7);color:var(--navy-2);font-weight:600}
+.cat-count{font-size:11px;font-weight:700;color:var(--gray-2);background:var(--gray-5);padding:2px 8px;border-radius:999px}
+.cat-list li a.current .cat-count{background:var(--navy-6);color:var(--navy-1)}
+
+/* Sidebar: Tag cloud */
+.tag-cloud{display:flex;flex-wrap:wrap;gap:8px}
+.tag-pill{background:var(--gray-5);color:var(--navy-3);padding:5px 12px;border-radius:999px;font-size:12px;font-weight:500;text-decoration:none;transition:background .12s}
+.tag-pill:hover{background:var(--navy-7);color:var(--navy-2)}
+
+/* ===== Mobile nav ===== */
+.nav-hamburger{display:none;background:none;border:none;cursor:pointer;padding:6px;color:var(--navy-3);align-items:center;line-height:1}
+.nav-hamburger .material-symbols-outlined{font-size:26px}
+.mobile-nav{display:none;position:absolute;top:100%;left:0;right:0;background:#fff;border-top:1px solid var(--gray-5);box-shadow:0 8px 24px rgba(16,27,95,.12);padding:20px 24px;z-index:200;flex-direction:column}
+.mobile-nav.open{display:flex}
+.mobile-nav>a{color:var(--navy-3);text-decoration:none;font-weight:500;font-size:15px;padding:12px 0;border-bottom:1px solid var(--gray-5);display:block}
+.mobile-nav>a.active{color:var(--teal-3)}
+.mobile-nav-ctas{display:flex;gap:10px;padding:16px 0 0;flex-wrap:wrap}
+
+/* ===== Footer ===== */
+footer{background:var(--navy-1);color:rgba(255,255,255,.7);padding:64px 32px 32px}
+.foot-inner{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px}
+footer h5{color:#fff;font-size:13px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;margin-bottom:16px}
+footer ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+footer a{color:rgba(255,255,255,.7);text-decoration:none}
+footer a:hover{color:#fff}
+.foot-mark{display:flex;align-items:center;gap:12px;margin-bottom:20px}
+.foot-mark img{height:40px;width:auto}
+.foot-addr{font-size:13px;line-height:1.8;color:rgba(255,255,255,.65)}
+.foot-bottom{max-width:1280px;margin:48px auto 0;padding-top:24px;border-top:1px solid rgba(255,255,255,.1);display:flex;justify-content:space-between;font-size:12px;color:rgba(255,255,255,.5)}
+
+/* ===== Responsive ===== */
+@media (max-width:1100px){
+  .blog-wrap{grid-template-columns:1fr;gap:40px}
+  .sidebar{position:static;display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+  .sidebar-cta-primary,.sidebar-newsletter{grid-column:1/-1}
+}
+@media (max-width:1250px){
+  .nav-items{gap:14px}
+  .nav-items a{font-size:12px}
+  .primary-nav-inner{padding:14px 24px;gap:16px}
+  .hub-login-btn{font-size:12px;padding:8px 12px}
+  .contact-cta{font-size:12px;padding:8px 12px}
+}
+@media (max-width:1000px){
+  .nav-items{display:none}
+  .nav-hamburger{display:flex}
+  .primary-nav-inner{padding:12px 20px;gap:10px}
+  .logo img{height:36px}
+}
+@media (max-width:700px){
+  .archive-post{grid-template-columns:1fr}
+  .ap-thumb{height:160px}
+  .blog-wrap{padding:40px 20px 56px}
+  .sidebar{grid-template-columns:1fr}
+}
+@media (max-width:640px){
+  .hero h1{font-size:32px}
+  .foot-inner{grid-template-columns:repeat(2,1fr)}
+  .foot-bottom{flex-direction:column;gap:8px}
+}
+@media (max-width:550px){
+  .search-icon{display:none}
+  .hub-login-btn{display:none}
+  .contact-cta{display:none}
+  .foot-inner{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- Primary nav -->
+<nav class="primary-nav">
+  <div class="primary-nav-inner">
+    <a class="logo" href="../index.html">
+      <img src="../assets/images/AP-Master-Logo-RGB.png" alt="Advertiser Perceptions" />
+    </a>
+    <div class="nav-items">
+      <a href="../index.html">Home</a>
+      <a href="../results.html">What We Do</a>
+      <a href="../solutions.html">Solutions</a>
+      <a href="../insights.html" class="active">Insights</a>
+      <a href="../ad-insights-hub.html">Ad Insights Hub</a>
+      <a href="../about.html">About Us</a>
+    </div>
+    <div class="nav-actions">
+      <button class="search-icon" aria-label="Search">⌕</button>
+      <a class="hub-login-btn" href="https://www.apinsightshub.com/member-login/" target="_blank" rel="noopener">Hub Login</a>
+      <a class="contact-cta" href="../connect.html">Contact Us</a>
+      <button class="nav-hamburger" id="navToggle" aria-label="Open menu" aria-expanded="false"><span class="material-symbols-outlined">menu</span></button>
+    </div>
+  </div>
+  <div class="mobile-nav" id="mobileNav">
+    <a href="../index.html">Home</a>
+    <a href="../results.html">What We Do</a>
+    <a href="../solutions.html">Solutions</a>
+    <a href="../insights.html" class="active">Insights</a>
+    <a href="../ad-insights-hub.html">Ad Insights Hub</a>
+    <a href="../about.html">About Us</a>
+    <div class="mobile-nav-ctas">
+      <a class="btn btn-sm" href="https://www.apinsightshub.com/member-login/" target="_blank" rel="noopener" style="background:var(--gray-5);color:var(--navy-3)">Hub Login</a>
+      <a class="btn btn-primary btn-sm" href="../connect.html">Contact Us</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ===== CATEGORY HERO ===== -->
+<!-- wp: Category name, description, and post count pulled from category object -->
+<section class="hero">
+  <div class="hex-field" aria-hidden="true">
+    <div class="hex hex-1"></div>
+    <div class="hex hex-2"></div>
+    <div class="hex hex-3"></div>
+    <div class="hex hex-4"></div>
+  </div>
+  <div class="hero-inner">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="../index.html">Home</a>
+      <span>›</span>
+      <a href="../insights.html">Insights</a>
+      <span>›</span>
+      <span style="color:rgba(255,255,255,.9)">CTV &amp; Streaming</span>
+    </nav>
+    <!-- wp: category eyebrow = "Topic" or custom taxonomy label -->
+    <span class="hero-eyebrow">Topic</span>
+    <!-- wp: <?php single_cat_title('<h1>', '</h1>'); ?> -->
+    <h1>CTV &amp; <em>Streaming</em></h1>
+    <div class="hero-meta">
+      <!-- wp: <?php echo $wp_query->found_posts; ?> posts -->
+      <span>24 articles</span>
+      <span>·</span>
+      <a href="../insights.html">← All Insights</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== BLOG LAYOUT: MAIN + SIDEBAR ===== -->
+<div class="blog-wrap">
+
+  <!-- ===== MAIN CONTENT ===== -->
+  <main>
+
+    <!-- Filter / topic chips -->
+    <!-- wp: Output all blog categories as chip links; add class="active" to current -->
+    <div class="filter-row">
+      <span class="filter-label">Filter</span>
+      <a class="chip" href="../insights.html">All Topics</a>
+      <a class="chip active" href="category.html">CTV &amp; Streaming</a>
+      <a class="chip" href="category.html">Programmatic</a>
+      <a class="chip" href="category.html">Retail Media</a>
+      <a class="chip" href="category.html">AI &amp; Search</a>
+      <a class="chip" href="category.html">Brand Health</a>
+    </div>
+
+    <!-- Post list -->
+    <!-- wp: <?php while (have_posts()) : the_post(); ?> -->
+    <div class="post-list">
+
+      <a class="archive-post" href="single.html">
+        <!-- wp: featured image or fallback gradient -->
+        <div class="ap-thumb teal"><span class="ap-thumb-ph">CTV / Streaming</span></div>
+        <div class="ap-body">
+          <span class="ap-tag">CTV &amp; Streaming</span>
+          <h2 class="ap-title">CTV Ad Spend Forecast: 2026 Update</h2>
+          <p class="ap-excerpt">Where we're revising up — and where we're flagging risk. Including category-level winners as streaming bundles consolidate and live sports rights shift platforms.</p>
+          <div class="ap-meta">
+            <span>Eric Haggstrom, SVP</span>
+            <span>·</span>
+            <span>Apr 2, 2026</span>
+            <span>·</span>
+            <span>5 min read</span>
+          </div>
+          <span class="ap-readmore">Read Article →</span>
+        </div>
+      </a>
+
+      <a class="archive-post" href="single.html">
+        <div class="ap-thumb"><span class="ap-thumb-ph">CTV Research</span></div>
+        <div class="ap-body">
+          <span class="ap-tag">CTV &amp; Streaming</span>
+          <h2 class="ap-title">Streaming Sports Advertising: What Buyers Really Think</h2>
+          <p class="ap-excerpt">Live sports has become the anchor content for streaming bundles. We surveyed 300 US media buyers on attribution, pricing, and audience targeting capabilities.</p>
+          <div class="ap-meta">
+            <span>AP Research</span>
+            <span>·</span>
+            <span>Mar 14, 2026</span>
+            <span>·</span>
+            <span>7 min read</span>
+          </div>
+          <span class="ap-readmore">Read Article →</span>
+        </div>
+      </a>
+
+      <a class="archive-post" href="single.html">
+        <div class="ap-thumb magenta"><span class="ap-thumb-ph">CTV Measurement</span></div>
+        <div class="ap-body">
+          <span class="ap-tag">CTV &amp; Streaming</span>
+          <h2 class="ap-title">Currency Debates and CTV: Where Advertisers Stand in 2026</h2>
+          <p class="ap-excerpt">Alternative currencies have moved from experiment to expectation. Our buyer sentiment data reveals which options are gaining traction and what sellers need to support.</p>
+          <div class="ap-meta">
+            <span>Erin Firneno, EVP</span>
+            <span>·</span>
+            <span>Feb 28, 2026</span>
+            <span>·</span>
+            <span>6 min read</span>
+          </div>
+          <span class="ap-readmore">Read Article →</span>
+        </div>
+      </a>
+
+      <a class="archive-post" href="single.html">
+        <div class="ap-thumb orange"><span class="ap-thumb-ph">FAST Channels</span></div>
+        <div class="ap-body">
+          <span class="ap-tag">CTV &amp; Streaming</span>
+          <h2 class="ap-title">FAST Channel Growth and the Advertiser Opportunity</h2>
+          <p class="ap-excerpt">Free Ad-Supported Streaming TV is growing faster than SVOD overall — but advertiser confidence in audience quality and measurement still lags. Here's why that gap is narrowing.</p>
+          <div class="ap-meta">
+            <span>Nicole Perrin, EVP</span>
+            <span>·</span>
+            <span>Feb 10, 2026</span>
+            <span>·</span>
+            <span>5 min read</span>
+          </div>
+          <span class="ap-readmore">Read Article →</span>
+        </div>
+      </a>
+
+      <a class="archive-post" href="single.html">
+        <div class="ap-thumb purple"><span class="ap-thumb-ph">Upfronts / Streaming</span></div>
+        <div class="ap-body">
+          <span class="ap-tag">CTV &amp; Streaming</span>
+          <h2 class="ap-title">Upfront Preview: How Streaming Is Reshaping the Linear Upfront</h2>
+          <p class="ap-excerpt">Buyers are bundling streaming and linear commitments in ways that blur the traditional upfront structure. We look at where budgets are actually going this cycle.</p>
+          <div class="ap-meta">
+            <span>Erin Firneno, EVP</span>
+            <span>·</span>
+            <span>Jan 22, 2026</span>
+            <span>·</span>
+            <span>6 min read</span>
+          </div>
+          <span class="ap-readmore">Read Article →</span>
+        </div>
+      </a>
+
+      <a class="archive-post" href="single.html">
+        <div class="ap-thumb teal"><span class="ap-thumb-ph">Audience Data</span></div>
+        <div class="ap-body">
+          <span class="ap-tag">CTV &amp; Streaming</span>
+          <h2 class="ap-title">Audience-Based Buying in CTV: Progress Report</h2>
+          <p class="ap-excerpt">Addressable and audience-based deals are now table stakes for premium streaming inventory. We benchmark where platforms stand on data transparency, match rates, and reporting.</p>
+          <div class="ap-meta">
+            <span>John Bishop, SVP</span>
+            <span>·</span>
+            <span>Jan 6, 2026</span>
+            <span>·</span>
+            <span>5 min read</span>
+          </div>
+          <span class="ap-readmore">Read Article →</span>
+        </div>
+      </a>
+
+    </div>
+    <!-- wp: <?php endwhile; ?> -->
+
+    <!-- Pagination -->
+    <!-- wp: <?php echo paginate_links([...]) ?> or WP_Query pagination -->
+    <nav class="pagination" aria-label="Page navigation">
+      <a class="page-btn wide" href="#">← Previous</a>
+      <a class="page-btn active" href="#">1</a>
+      <a class="page-btn" href="#">2</a>
+      <a class="page-btn" href="#">3</a>
+      <span class="page-btn" style="border:none;color:var(--gray-2);cursor:default">…</span>
+      <a class="page-btn" href="#">8</a>
+      <a class="page-btn wide" href="#">Next →</a>
+    </nav>
+
+  </main>
+
+  <!-- ===== SIDEBAR ===== -->
+  <aside class="sidebar" aria-label="Blog sidebar">
+
+    <!-- PRIMARY CTA -->
+    <div class="sidebar-cta-primary">
+      <div class="scta-hex scta-hex-1" aria-hidden="true"></div>
+      <div class="scta-hex scta-hex-2" aria-hidden="true"></div>
+      <div class="scta-hex scta-hex-3" aria-hidden="true"></div>
+      <span class="scta-eyebrow">Research Partner</span>
+      <h2 class="scta-heading">Turn Data Into Your Competitive Advantage</h2>
+      <p class="scta-body">AP's syndicated and custom research gives media sellers the precise buyer insights needed to refine messaging, outpace competitors, and close more deals.</p>
+      <div class="scta-stat">
+        <span class="scta-stat-num">600+</span>
+        <span class="scta-stat-lbl">media and ad tech clients trust AP research annually</span>
+      </div>
+      <a class="btn btn-primary" href="../connect.html">Talk to Our Research Team →</a>
+    </div>
+
+    <!-- NEWSLETTER CTA -->
+    <div class="sidebar-newsletter">
+      <div class="snl-accent"></div>
+      <span class="snl-eyebrow">Stay in the Know</span>
+      <h3 class="snl-heading">Get AP insights in your inbox</h3>
+      <p class="snl-body">Weekly research findings, blog posts, and AP3 episodes — no spam, just the data you'll actually use.</p>
+      <form class="snl-form" action="#" method="post">
+        <!-- wp: hook to newsletter plugin (e.g. Mailchimp for WP, FluentCRM) -->
+        <input type="email" name="email" placeholder="you@company.com" required />
+        <button type="submit">Subscribe →</button>
+      </form>
+      <p class="snl-disclaimer">By subscribing you agree to receive marketing emails. Unsubscribe anytime.</p>
+    </div>
+
+    <!-- SEARCH -->
+    <div class="sidebar-widget">
+      <div class="sw-title">Search</div>
+      <!-- wp: <?php get_search_form(); ?> -->
+      <form class="sw-search" action="#" method="get" role="search">
+        <input type="search" name="s" placeholder="Search AP Insights…" aria-label="Search" />
+        <button type="submit" aria-label="Submit search">⌕</button>
+      </form>
+    </div>
+
+    <!-- RECENT POSTS -->
+    <div class="sidebar-widget">
+      <div class="sw-title">Recent Posts</div>
+      <!-- wp: WP_Query recent posts loop -->
+      <div class="recent-posts">
+        <a class="rp-item" href="single.html">
+          <div class="rp-title">CTV Ad Spend Forecast: 2026 Update</div>
+          <div class="rp-date">Apr 2, 2026</div>
+        </a>
+        <a class="rp-item" href="single.html">
+          <div class="rp-title">FAST Channel Growth and the Advertiser Opportunity</div>
+          <div class="rp-date">Feb 10, 2026</div>
+        </a>
+        <a class="rp-item" href="single.html">
+          <div class="rp-title">Retail Media Networks: Beyond the Big 3</div>
+          <div class="rp-date">Mar 22, 2026</div>
+        </a>
+        <a class="rp-item" href="single.html">
+          <div class="rp-title">Building a Strong Framework for Brand Health</div>
+          <div class="rp-date">Jun 2, 2025</div>
+        </a>
+        <a class="rp-item" href="single.html">
+          <div class="rp-title">What AI-Generated Search Means for SEM Budgets</div>
+          <div class="rp-date">Mar 14, 2026</div>
+        </a>
+      </div>
+    </div>
+
+    <!-- CATEGORIES -->
+    <div class="sidebar-widget">
+      <div class="sw-title">Browse by Topic</div>
+      <!-- wp: wp_list_categories() with custom walker or manual output -->
+      <ul class="cat-list">
+        <li><a href="category.html" class="current">CTV &amp; Streaming <span class="cat-count">24</span></a></li>
+        <li><a href="category.html">Programmatic <span class="cat-count">18</span></a></li>
+        <li><a href="category.html">Retail Media <span class="cat-count">15</span></a></li>
+        <li><a href="category.html">AI &amp; Search <span class="cat-count">12</span></a></li>
+        <li><a href="category.html">Brand Health <span class="cat-count">9</span></a></li>
+        <li><a href="category.html">Upfronts <span class="cat-count">8</span></a></li>
+        <li><a href="category.html">Out-of-Home <span class="cat-count">7</span></a></li>
+        <li><a href="category.html">Audio &amp; Podcasts <span class="cat-count">6</span></a></li>
+      </ul>
+    </div>
+
+    <!-- TAG CLOUD -->
+    <div class="sidebar-widget">
+      <div class="sw-title">Popular Tags</div>
+      <!-- wp: wp_tag_cloud() -->
+      <div class="tag-cloud">
+        <a class="tag-pill" href="#">CTV</a>
+        <a class="tag-pill" href="#">Streaming</a>
+        <a class="tag-pill" href="#">Programmatic</a>
+        <a class="tag-pill" href="#">Retail Media</a>
+        <a class="tag-pill" href="#">Upfronts</a>
+        <a class="tag-pill" href="#">Attribution</a>
+        <a class="tag-pill" href="#">AI</a>
+        <a class="tag-pill" href="#">Search</a>
+        <a class="tag-pill" href="#">Brand Safety</a>
+        <a class="tag-pill" href="#">Audience Data</a>
+        <a class="tag-pill" href="#">FAST</a>
+        <a class="tag-pill" href="#">OOH</a>
+      </div>
+    </div>
+
+  </aside>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="foot-inner">
+    <div>
+      <div class="foot-mark">
+        <img src="../assets/images/AP-Master-Logo-KO.png" alt="Advertiser Perceptions" />
+      </div>
+      <p class="foot-addr">1120 Avenue of the Americas, 4th Floor<br>New York, NY 10036<br>Phone: (212) 626-6683<br><a href="mailto:info@advertiserperceptions.com">info@advertiserperceptions.com</a></p>
+    </div>
+    <div>
+      <h5>Company</h5>
+      <ul>
+        <li><a href="../about.html">About Us</a></li>
+        <li><a href="../careers.html">Careers</a></li>
+        <li><a href="../connect.html">Connect</a></li>
+        <li><a href="../adpros.html">AP Ad Pros</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>What We Do</h5>
+      <ul>
+        <li><a href="../solutions.html">Solutions</a></li>
+        <li><a href="../results.html">Results &amp; Case Studies</a></li>
+        <li><a href="../ad-insights-hub.html">Ad Insights Hub</a></li>
+        <li><a href="../insights.html">Insights</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>Connect</h5>
+      <ul>
+        <li><a href="https://www.linkedin.com/company/advertiser-perceptions" target="_blank" rel="noopener">LinkedIn</a></li>
+        <li><a href="../connect.html">Newsletter Signup</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <span>© 2026 Advertiser Perceptions. All logos and trademarks are the property of their respective owners.</span>
+    <span><a href="#">Privacy Policy</a> &nbsp;::&nbsp; <a href="#">Website Accessibility Statement</a></span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var toggle = document.getElementById('navToggle');
+  var nav = document.getElementById('mobileNav');
+  if(!toggle||!nav) return;
+  toggle.addEventListener('click', function(){
+    var open = nav.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', open);
+    toggle.querySelector('.material-symbols-outlined').textContent = open ? 'close' : 'menu';
+  });
+  document.addEventListener('click', function(e){
+    if(!toggle.contains(e.target) && !nav.contains(e.target)){
+      nav.classList.remove('open');
+      toggle.setAttribute('aria-expanded', 'false');
+      toggle.querySelector('.material-symbols-outlined').textContent = 'menu';
+    }
+  });
+})();
+</script>
+<script src="../assets/js/animate.js" defer></script>
+<script src="../assets/js/cta-toggle.js" defer></script>
+</body>
+</html>
