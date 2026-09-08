@@ -1,10 +1,12 @@
-/* AP CTA Color Preview Toggle — client-facing, dev/preview only */
+/* AP CTA Color + Layout Density Preview Toggle — client-facing, dev/preview only */
 (function () {
   var KEY = 'ap-cta-scheme';
+  var MARGIN_KEY = 'ap-tight-margins';
   var TEAL    = { bg: '#0B8395', hover: '#10697F', outline: '#D9EEF2', label: 'Teal' };
   var MAGENTA = { bg: '#DA0058', hover: '#B5004A', outline: '#FFD9E6', label: 'Magenta' };
 
   var scheme = sessionStorage.getItem(KEY) || 'teal';
+  var tightMargins = sessionStorage.getItem(MARGIN_KEY) === '1';
 
   /* ── Inject override styles ── */
   var st = document.createElement('style');
@@ -22,6 +24,25 @@
     'body.cta-magenta .btn-teal-outline:hover{background:' + MAGENTA.outline + '!important}',
     /* hero promo pill */
     'body.cta-magenta .hero-promo .pill{background:' + MAGENTA.bg + '!important}',
+
+    /* ── Tighter margins preview ── */
+    'body.tight-margins section{padding:56px 32px!important}',
+    'body.tight-margins section.tight{padding:40px 32px!important}',
+    'body.tight-margins .hero{padding:64px 32px 72px!important}',
+    'body.tight-margins .hero.compact{padding:44px 32px 52px!important}',
+    'body.tight-margins .sec-head-row{margin-bottom:28px!important}',
+    'body.tight-margins .cards{margin-top:28px!important;gap:16px!important}',
+    'body.tight-margins .team{margin-top:28px!important;gap:16px!important}',
+    'body.tight-margins .pillars{margin-top:28px!important;gap:20px!important}',
+    'body.tight-margins .stat-row{margin-top:28px!important;gap:20px!important}',
+    'body.tight-margins .split{gap:36px!important}',
+    'body.tight-margins .mega-cta{padding:56px 32px!important}',
+    'body.tight-margins .mega-cta-card{padding:44px 40px!important}',
+    'body.tight-margins footer{padding:40px 32px 24px!important}',
+    'body.tight-margins .foot-inner{gap:28px!important}',
+    'body.tight-margins .foot-bottom{margin-top:24px!important;padding-top:16px!important}',
+    'body.tight-margins .team-group-title{margin-top:24px!important}',
+    'body.tight-margins .about-stats{padding:32px 32px!important}',
   ].join('');
   document.head.appendChild(st);
 
@@ -30,6 +51,14 @@
     scheme = s;
     sessionStorage.setItem(KEY, s);
     document.body.classList.toggle('cta-magenta', s === 'magenta');
+    renderUI();
+  }
+
+  /* ── Apply margin density to body ── */
+  function applyMargins(on) {
+    tightMargins = on;
+    sessionStorage.setItem(MARGIN_KEY, on ? '1' : '0');
+    document.body.classList.toggle('tight-margins', on);
     renderUI();
   }
 
@@ -90,6 +119,37 @@
     row.appendChild(widget._tBtn);
     row.appendChild(widget._mBtn);
 
+    /* margin density row */
+    var marginRow = document.createElement('div');
+    css(marginRow, {
+      display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+      marginTop: '12px', paddingTop: '12px', borderTop: '1px solid rgba(8,0,84,.08)',
+    });
+    var marginLbl = document.createElement('span');
+    css(marginLbl, { fontSize: '12px', fontWeight: '600', color: '#4A5568' });
+    marginLbl.textContent = 'Tighter margins';
+
+    var sw = document.createElement('button');
+    css(sw, {
+      width: '38px', height: '22px', borderRadius: '999px', border: 'none',
+      cursor: 'pointer', position: 'relative', background: '#D0D5DD',
+      transition: 'background .15s', flexShrink: '0', padding: '0',
+    });
+    var knob = document.createElement('span');
+    css(knob, {
+      position: 'absolute', top: '2px', left: '2px', width: '18px', height: '18px',
+      borderRadius: '50%', background: '#fff', transition: 'transform .15s',
+      boxShadow: '0 1px 3px rgba(8,0,84,.3)',
+    });
+    sw.appendChild(knob);
+    sw.setAttribute('aria-label', 'Toggle tighter margins');
+    sw.addEventListener('click', function () { applyMargins(!tightMargins); });
+    widget._marginSw = sw;
+    widget._marginKnob = knob;
+
+    marginRow.appendChild(marginLbl);
+    marginRow.appendChild(sw);
+
     /* sitemap link — resolves path based on subfolder depth */
     var inSub = window.location.pathname.indexOf('/team/') !== -1 ||
                 window.location.pathname.indexOf('/blog/') !== -1;
@@ -107,6 +167,7 @@
 
     widget.appendChild(lbl);
     widget.appendChild(row);
+    widget.appendChild(marginRow);
     widget.appendChild(siteLink);
     document.body.appendChild(widget);
   }
@@ -117,6 +178,8 @@
     css(widget._tBtn, { opacity: isMag ? '.4' : '1', outlineColor: isMag ? 'transparent' : TEAL.bg });
     css(widget._mBtn, { opacity: isMag ? '1' : '.4', outlineColor: isMag ? MAGENTA.bg : 'transparent' });
     css(widget._dot, { background: isMag ? MAGENTA.bg : TEAL.bg });
+    css(widget._marginSw, { background: tightMargins ? TEAL.bg : '#D0D5DD' });
+    css(widget._marginKnob, { transform: tightMargins ? 'translateX(16px)' : 'translateX(0)' });
   }
 
   /* ── Newsletter modal ── */
@@ -277,4 +340,5 @@
   /* ── Init ── (defer guarantees body exists) */
   buildWidget();
   applyScheme(scheme);
+  applyMargins(tightMargins);
 })();
