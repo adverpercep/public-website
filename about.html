@@ -262,14 +262,9 @@ html{scroll-behavior:smooth}
 .back-to-top.visible{opacity:1;visibility:visible;transform:translateY(0)}
 .back-to-top:hover{background:var(--navy-2)}
 .back-to-top .material-symbols-outlined{font-size:22px}
-
-/* ===== Skip link ===== */
-.skip-link{position:absolute;left:-9999px;top:0;background:var(--navy-2);color:#fff;padding:12px 22px;border-radius:0 0 10px 0;font-weight:600;font-size:14px;text-decoration:none;z-index:1000}
-.skip-link:focus{left:0}
 </style>
 </head>
 <body>
-<a href="#main" class="skip-link">Skip to main content</a>
 
 <!-- Primary nav -->
 <nav class="primary-nav">
@@ -306,9 +301,10 @@ html{scroll-behavior:smooth}
     </div>
   </div>
 </nav>
+<main>
 
 <!-- ===== HERO ===== -->
-<section id="main" class="hero compact">
+<section class="hero compact">
   <div class="hero-inner">
     <span class="hero-eyebrow">About Advertiser Perceptions</span>
     <h1>20+ years <em>uncovering</em> what advertisers really think.</h1>
@@ -633,6 +629,7 @@ html{scroll-behavior:smooth}
 </section>
 
 <!-- ===== FOOTER ===== -->
+</main>
 <footer>
   <div class="foot-inner">
     <div>
@@ -707,7 +704,7 @@ html{scroll-behavior:smooth}
   });
 })();
 </script>
-<script src="assets/js/animate.js" defer></script><script src="assets/js/cta-toggle.js?v=3" defer></script>
+<script src="assets/js/animate.js" defer></script><script src="assets/js/cta-toggle.js?v=4" defer></script>
 </body>
 </html>
 

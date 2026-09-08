@@ -1,27 +1,129 @@
-/* AP floating Project Guide link + newsletter modal — dev/preview only */
+/* AP Layout Density Preview Toggle — client-facing, dev/preview only */
 (function () {
+  var MARGIN_KEY = 'ap-tight-margins';
+  var ACCENT = '#0B8395';
+
+  var tightMargins = sessionStorage.getItem(MARGIN_KEY) === '1';
+
+  /* ── Inject override styles ── */
+  var st = document.createElement('style');
+  st.textContent = [
+    /* ── Tighter margins preview ── */
+    'body.tight-margins section{padding:56px 32px!important}',
+    'body.tight-margins section.tight{padding:40px 32px!important}',
+    'body.tight-margins .hero{padding:64px 32px 72px!important}',
+    'body.tight-margins .hero.compact{padding:44px 32px 52px!important}',
+    'body.tight-margins .sec-head-row{margin-bottom:28px!important}',
+    'body.tight-margins .cards{margin-top:28px!important;gap:16px!important}',
+    'body.tight-margins .team{margin-top:28px!important;gap:16px!important}',
+    'body.tight-margins .pillars{margin-top:28px!important;gap:20px!important}',
+    'body.tight-margins .stat-row{margin-top:28px!important;gap:20px!important}',
+    'body.tight-margins .split{gap:36px!important}',
+    'body.tight-margins .mega-cta{padding:56px 32px!important}',
+    'body.tight-margins .mega-cta-card{padding:44px 40px!important}',
+    'body.tight-margins footer{padding:40px 32px 24px!important}',
+    'body.tight-margins .foot-inner{gap:28px!important}',
+    'body.tight-margins .foot-bottom{margin-top:24px!important;padding-top:16px!important}',
+    'body.tight-margins .team-group-title{margin-top:24px!important}',
+    'body.tight-margins .about-stats{padding:32px 32px!important}',
+  ].join('');
+  document.head.appendChild(st);
+
+  /* ── Apply margin density to body ── */
+  function applyMargins(on) {
+    tightMargins = on;
+    sessionStorage.setItem(MARGIN_KEY, on ? '1' : '0');
+    document.body.classList.toggle('tight-margins', on);
+    renderUI();
+  }
+
+  /* ── Build floating widget ── */
+  var widget;
+
   function css(el, props) {
     Object.keys(props).forEach(function (k) { el.style[k] = props[k]; });
   }
 
   function buildWidget() {
+    widget = document.createElement('div');
+    css(widget, {
+      position: 'fixed', bottom: '22px', right: '22px', zIndex: '2147483647',
+      background: '#fff', border: '1px solid rgba(8,0,84,.12)',
+      borderRadius: '14px', boxShadow: '0 6px 28px rgba(8,0,84,.15)',
+      padding: '14px 16px 14px', fontFamily: 'system-ui,-apple-system,sans-serif',
+      userSelect: 'none', minWidth: '210px',
+    });
+
+    /* label row */
+    var lbl = document.createElement('div');
+    css(lbl, {
+      fontSize: '9.5px', letterSpacing: '.14em', textTransform: 'uppercase',
+      fontWeight: '700', color: '#718096', marginBottom: '10px',
+      display: 'flex', alignItems: 'center', gap: '6px',
+    });
+    var dot = document.createElement('span');
+    css(dot, {
+      width: '7px', height: '7px', borderRadius: '50%',
+      display: 'inline-block', flexShrink: '0', background: ACCENT,
+    });
+    lbl.appendChild(dot);
+    lbl.appendChild(document.createTextNode('Options'));
+
+    /* margin density row */
+    var marginRow = document.createElement('div');
+    css(marginRow, {
+      display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+    });
+    var marginLbl = document.createElement('span');
+    css(marginLbl, { fontSize: '12px', fontWeight: '600', color: '#4A5568' });
+    marginLbl.textContent = 'Tighter margins';
+
+    var sw = document.createElement('button');
+    css(sw, {
+      width: '38px', height: '22px', borderRadius: '999px', border: 'none',
+      cursor: 'pointer', position: 'relative', background: '#D0D5DD',
+      transition: 'background .15s', flexShrink: '0', padding: '0',
+    });
+    var knob = document.createElement('span');
+    css(knob, {
+      position: 'absolute', top: '2px', left: '2px', width: '18px', height: '18px',
+      borderRadius: '50%', background: '#fff', transition: 'transform .15s',
+      boxShadow: '0 1px 3px rgba(8,0,84,.3)',
+    });
+    sw.appendChild(knob);
+    sw.setAttribute('aria-label', 'Toggle tighter margins');
+    sw.addEventListener('click', function () { applyMargins(!tightMargins); });
+    widget._marginSw = sw;
+    widget._marginKnob = knob;
+
+    marginRow.appendChild(marginLbl);
+    marginRow.appendChild(sw);
+
+    /* sitemap link — resolves path based on subfolder depth */
     var inSub = window.location.pathname.indexOf('/team/') !== -1 ||
                 window.location.pathname.indexOf('/blog/') !== -1;
     var siteLink = document.createElement('a');
     siteLink.href = (inSub ? '../' : '') + 'sitemap.html';
     css(siteLink, {
-      position: 'fixed', bottom: '22px', right: '22px', zIndex: '2147483647',
-      display: 'block', padding: '10px 16px',
-      background: '#fff', border: '1px solid rgba(8,0,84,.12)',
-      borderRadius: '999px', boxShadow: '0 6px 28px rgba(8,0,84,.15)',
-      fontFamily: 'system-ui,-apple-system,sans-serif',
-      fontSize: '12.5px', fontWeight: '600', textAlign: 'center',
-      color: '#4A5568', textDecoration: 'none', userSelect: 'none',
+      display: 'block', marginTop: '10px', padding: '7px 10px',
+      borderRadius: '7px', border: '1px solid rgba(8,0,84,.14)',
+      fontSize: '11.5px', fontWeight: '600', textAlign: 'center',
+      color: '#4A5568', textDecoration: 'none', background: 'transparent',
     });
     siteLink.textContent = '⊞  Project Guide';
     siteLink.addEventListener('mouseenter', function () { siteLink.style.background = '#F0F4FF'; });
-    siteLink.addEventListener('mouseleave', function () { siteLink.style.background = '#fff'; });
-    document.body.appendChild(siteLink);
+    siteLink.addEventListener('mouseleave', function () { siteLink.style.background = 'transparent'; });
+
+    widget.appendChild(lbl);
+    widget.appendChild(marginRow);
+    widget.appendChild(siteLink);
+    document.body.appendChild(widget);
+  }
+
+  function renderUI() {
+    if (!widget) return;
+    css(widget._marginSw, { background: tightMargins ? ACCENT : '#D0D5DD' });
+    css(widget._marginKnob, { transform: tightMargins ? 'translateX(16px)' : 'translateX(0)' });
   }
 
   /* ── Newsletter modal ── */
@@ -182,4 +284,5 @@
 
   /* ── Init ── (defer guarantees body exists) */
   buildWidget();
+  applyMargins(tightMargins);
 })();
